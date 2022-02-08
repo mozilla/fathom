@@ -12,7 +12,7 @@
   "devDependencies": {
     "fathom-web": "file:../fathom",
     "freeze-dry": "^0.2.4",
-    "geckodriver": "^1.16.2",
+    "geckodriver": "^3.0.1",
     "rollup": "^1.17.0",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-json": "^4.0.0",

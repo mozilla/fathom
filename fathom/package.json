@@ -23,12 +23,12 @@
     "eslint": "^6.7.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^10.0.0",
-    "geckodriver": "^1.22.2",
+    "geckodriver": "^3.0.1",
     "jsdoc": "^3.5.4",
     "mocha": "^6.2.2",
     "nyc": "^14.1.1",
     "rollup": "^1.27.5",
-    "selenium-webdriver": "^4.0.0-alpha.4"
+    "selenium-webdriver": "^4.1.1"
   },
   "engines": {
     "node": ">= 7.6.0"
