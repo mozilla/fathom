@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fathom list &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fathom pick" href="pick.html" />
+    <link rel="prev" title="fathom label" href="label.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples.html">Collecting Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">fathom label</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>fathom list</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/commands/list.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This command is rarely needed anymore. As of Fathom 3.4, vectorization happens automatically when you run a command that needs it.</p>
+</div>
+<div class="section" id="fathom-list">
+<h1>fathom list<a class="headerlink" href="#fathom-list" title="Permalink to this headline">¶</a></h1>
+<p>List URL paths to samples.</p>
+<p>Recursively list paths of HTML files in IN_DIRECTORY relative to
+&lt;base_dir&gt;, one path per line. If &lt;base_dir&gt; is not specified,
+paths are relative to IN_DIRECTORY. Optionally saves output to
+&lt;out_file&gt;.</p>
+<p>This is useful for vectorizing samples using FathomFox. FathomFox expects
+input filenames copied into a text box with one filename per line and
+relative to some path you are serving files from using <code class="docutils literal notranslate"><span class="pre">fathom</span> <span class="pre">serve</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>fathom list <span class="o">[</span>OPTIONS<span class="o">]</span> IN_DIRECTORY
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt id="cmdoption-fathom-list-b">
+<span id="cmdoption-fathom-list-base-dir"></span><code class="sig-name descname">-b</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--base-dir</code><code class="sig-prename descclassname"> &lt;base_dir&gt;</code><a class="headerlink" href="#cmdoption-fathom-list-b" title="Permalink to this definition">¶</a></dt>
+<dd><p>The directory to create relative paths from.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-list-o">
+<span id="cmdoption-fathom-list-out-file"></span><code class="sig-name descname">-o</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--out-file</code><code class="sig-prename descclassname"> &lt;out_file&gt;</code><a class="headerlink" href="#cmdoption-fathom-list-o" title="Permalink to this definition">¶</a></dt>
+<dd><p>A file for saving the printed filenames for easy future reference.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-list-u">
+<span id="cmdoption-fathom-list-show-urls"></span><code class="sig-name descname">-u</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--show-urls</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-fathom-list-u" title="Permalink to this definition">¶</a></dt>
+<dd><p>Also show the original URL of each sample.</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt id="cmdoption-fathom-list-arg-IN_DIRECTORY">
+<code class="sig-name descname">IN_DIRECTORY</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-fathom-list-arg-IN_DIRECTORY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pick.html" class="btn btn-neutral float-right" title="fathom pick" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="label.html" class="btn btn-neutral float-left" title="fathom label" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

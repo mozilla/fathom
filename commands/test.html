@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fathom test &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fathom train" href="train.html" />
+    <link rel="prev" title="fathom serve" href="serve.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples.html">Collecting Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serve.html">fathom serve</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>fathom test</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/commands/test.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fathom-test">
+<h1>fathom test<a class="headerlink" href="#fathom-test" title="Permalink to this headline">¶</a></h1>
+<p>Evaluate how well a trained ruleset does.</p>
+<p>TESTING_SET_FOLDER is a directory of labeled testing pages. It can also be,
+for backward compatibility, a JSON file of vectors from FathomFox’s
+Vectorizer.</p>
+<p>WEIGHTS should be a JSON-formatted object, as follows. You can paste it
+directly from the output of trainer.</p>
+<div class="line-block">
+<div class="line">{“coeffs”: [[“nextAnchorIsJavaScript”, 1.1627885103225708],</div>
+<div class="line-block">
+<div class="line-block">
+<div class="line">[“nextButtonTypeSubmit”, 4.613410949707031],</div>
+<div class="line">[“nextInputTypeSubmit”, 4.374269008636475]],</div>
+</div>
+<div class="line">“bias”: -8.645608901977539}</div>
+</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>fathom <span class="nb">test</span> <span class="o">[</span>OPTIONS<span class="o">]</span> TESTING_SET_FOLDER WEIGHTS
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt id="cmdoption-fathom-test-t">
+<span id="cmdoption-fathom-test-confidence-threshold"></span><code class="sig-name descname">-t</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--confidence-threshold</code><code class="sig-prename descclassname"> &lt;confidence_threshold&gt;</code><a class="headerlink" href="#cmdoption-fathom-test-t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold at which a sample is considered positive. Higher values decrease false positives and increase false negatives.  [default: 0.5]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-test-r">
+<span id="cmdoption-fathom-test-ruleset"></span><code class="sig-name descname">-r</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--ruleset</code><code class="sig-prename descclassname"> &lt;ruleset&gt;</code><a class="headerlink" href="#cmdoption-fathom-test-r" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rulesets.js file containing your rules. The file must have no imports except from fathom-web, so pre-bundle if necessary.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-test-trainee">
+<code class="sig-name descname">--trainee</code><code class="sig-prename descclassname"> &lt;trainee&gt;</code><a class="headerlink" href="#cmdoption-fathom-test-trainee" title="Permalink to this definition">¶</a></dt>
+<dd><p>The trainee ID of the ruleset you are testing. Usually, this is the same as the type you are testing.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-test-testing-cache">
+<code class="sig-name descname">--testing-cache</code><code class="sig-prename descclassname"> &lt;testing_cache&gt;</code><a class="headerlink" href="#cmdoption-fathom-test-testing-cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where to cache testing vectors to speed future testing runs. Any existing file will be overwritten. [default: vectors/testing_yourTraineeId.json next to your ruleset]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-test-delay">
+<code class="sig-name descname">--delay</code><code class="sig-prename descclassname"> &lt;delay&gt;</code><a class="headerlink" href="#cmdoption-fathom-test-delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of seconds to wait for a page to load before vectorizing it  [default: 5]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-test-tabs">
+<code class="sig-name descname">--tabs</code><code class="sig-prename descclassname"> &lt;tabs&gt;</code><a class="headerlink" href="#cmdoption-fathom-test-tabs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of concurrent browser tabs to use while vectorizing  [default: 16]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-test-show-browser">
+<code class="sig-name descname">--show-browser</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-fathom-test-show-browser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show browser window while vectorizing. (Browser runs in headless mode by default.)</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-test-v">
+<span id="cmdoption-fathom-test-verbose"></span><code class="sig-name descname">-v</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--verbose</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-fathom-test-v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show per-tag diagnostics, even though that could ruin blinding for the test set.</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt id="cmdoption-fathom-test-arg-TESTING_SET_FOLDER">
+<code class="sig-name descname">TESTING_SET_FOLDER</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-fathom-test-arg-TESTING_SET_FOLDER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-test-arg-WEIGHTS">
+<code class="sig-name descname">WEIGHTS</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-fathom-test-arg-WEIGHTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="train.html" class="btn btn-neutral float-right" title="fathom train" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="serve.html" class="btn btn-neutral float-left" title="fathom serve" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

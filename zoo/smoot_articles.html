@@ -1,0 +1,1021 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Smoot Article Ruleset &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Smoot Shopping Ruleset" href="smoot_shopping.html" />
+    <link rel="prev" title="Login Forms Ruleset" href="login.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples.html">Collecting Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../commands/extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/test.html">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands/train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Smoot Article Ruleset</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/zoo/smoot_articles.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="smoot-article-ruleset">
+<h1>Smoot Article Ruleset<a class="headerlink" href="#smoot-article-ruleset" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-js notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cm">/* This Source Code Form is subject to the terms of the Mozilla Public</span>
+<span class="cm"> * License, v. 2.0. If a copy of the MPL was not distributed with this</span>
+<span class="cm"> * file, You can obtain one at http://mozilla.org/MPL/2.0/. */</span>
+
+<span class="cm">/* eslint-disable max-len, arrow-body-style */</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">linearScale</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;fathom-web/utilsForFrontend&quot;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">dom</span><span class="p">,</span> <span class="nx">out</span><span class="p">,</span> <span class="nx">rule</span><span class="p">,</span> <span class="nx">ruleset</span><span class="p">,</span> <span class="nx">score</span><span class="p">,</span> <span class="nx">type</span><span class="p">}</span> <span class="nx">from</span> <span class="s2">&quot;fathom-web&quot;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">coefficients</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;paragraph&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;pElementHasListItemAncestor&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.86763596534729</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;hasLongTextContent&quot;</span><span class="p">,</span> <span class="mf">5.575725555419922</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;containsElipsisAtEndOfText&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.13708636164665222</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;classNameOfSelfOrParentContainsUnlikelyWord&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.073239326477051</span><span class="p">]</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;article&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;hasEnoughParagraphs&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0311405658721924</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;hasExactlyOneArticleElement&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2359271049499512</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;paragraphElementsHaveSiblingsWithSameTagName&quot;</span><span class="p">,</span> <span class="mf">12.159211158752441</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;mostParagraphElementsAreHorizontallyAligned&quot;</span><span class="p">,</span> <span class="mf">0.5681423544883728</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;moreParagraphElementsThanListItemsOrTableRows&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.6533799171447754</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;headerElementIsSiblingToParagraphElements&quot;</span><span class="p">,</span> <span class="mf">12.294110298156738</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;hasMultipleArticleElements&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.300487756729126</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;hasMultipleParagraphsWhoseClassNameIncludesArticle&quot;</span><span class="p">,</span> <span class="mf">0.26676997542381287</span><span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">biases</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="s2">&quot;paragraph&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.550228595733643</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;article&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.676619291305542</span><span class="p">]</span>
+<span class="p">];</span>
+
+<span class="cm">/**</span>
+<span class="cm">* Fathom ruleset</span>
+<span class="cm">*</span>
+<span class="cm">* These are the features used to extract different types of information on a page (or categorize the entire page).</span>
+<span class="cm">*/</span>
+
+<span class="c1">// Memoize expensive results, so they are only computed once.</span>
+<span class="kd">let</span> <span class="nx">highestScoringParagraphs</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">numParagraphsInAllDivs</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">MIN_PARAGRAPH_LENGTH</span> <span class="o">=</span> <span class="mi">234</span><span class="p">;</span> <span class="c1">// Optimized with 10 sample pages</span>
+<span class="kr">const</span> <span class="nx">UNLIKELY_WORDS_IN_PARAGRAPH_CLASSNAMES</span> <span class="o">=</span> <span class="sr">/comment|caption/i</span><span class="p">;</span>
+
+<span class="c1">// Text nodes are not targetable via document.querySelectorAll (i.e. Fathom&#39;s `dom` method), so we instead use</span>
+<span class="c1">// different heuristics based on the child elements contained inside the &lt;div&gt;.</span>
+<span class="kd">function</span> <span class="nx">numParagraphTextNodesInDiv</span><span class="p">({</span><span class="nx">element</span><span class="p">})</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">divHasBrChildElement</span><span class="p">({</span><span class="nx">element</span><span class="p">}))</span> <span class="p">{</span>
+    <span class="c1">// Estimate the number of paragraph-like text nodes based on the number of descendant &lt;br&gt; elements and</span>
+    <span class="c1">// list elements in the &lt;div&gt;</span>
+    <span class="kr">const</span> <span class="nx">listDescendants</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;ol&quot;</span><span class="p">)).</span><span class="nx">concat</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;ul&quot;</span><span class="p">)));</span>
+    <span class="kr">const</span> <span class="nx">brDescendants</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;br&quot;</span><span class="p">));</span>
+    <span class="kr">const</span> <span class="nx">pDescendants</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">));</span>
+    <span class="c1">// We assume a &lt;br&gt; divides two text nodes/&quot;chunks&quot; (a paragraph or a list)</span>
+    <span class="c1">// But let&#39;s make sure each &lt;br&gt; is actually immediately adjacent to at least one textNode of sufficient length, as</span>
+    <span class="c1">// sometimes there are lots of extra &lt;br&gt;s just for styling purposes.</span>
+    <span class="kr">const</span> <span class="nx">brsNextToSufficientlyLongTextNodes</span> <span class="o">=</span> <span class="nx">brDescendants</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">descendant</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="p">{</span><span class="nx">previousSibling</span><span class="p">,</span> <span class="nx">nextSibling</span><span class="p">}</span> <span class="o">=</span> <span class="nx">descendant</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">previousSibling</span> <span class="o">&amp;&amp;</span> <span class="nx">previousSibling</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">===</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">TEXT_NODE</span> <span class="o">&amp;&amp;</span> <span class="nx">previousSibling</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="nx">MIN_PARAGRAPH_LENGTH</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">nextSibling</span> <span class="o">&amp;&amp;</span> <span class="nx">nextSibling</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">===</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">TEXT_NODE</span> <span class="o">&amp;&amp;</span> <span class="nx">nextSibling</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="nx">MIN_PARAGRAPH_LENGTH</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nx">brsNextToSufficientlyLongTextNodes</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">listDescendants</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">pDescendants</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// The only other divs this function would receive are if divHasOnlyTextNodesAnchorElementsOrSpanElements,</span>
+  <span class="c1">// so we&#39;ll just say the div contains one paragraph if its text nodes, when summed together, have sufficient length.</span>
+  <span class="kr">const</span> <span class="nx">textNodeLengths</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">node</span> <span class="p">=&gt;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">===</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">TEXT_NODE</span> <span class="o">?</span> <span class="nx">node</span><span class="p">.</span><span class="nx">nodeValue</span><span class="p">.</span><span class="nx">length</span> <span class="o">:</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">totalLength</span> <span class="o">=</span> <span class="nx">textNodeLengths</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">prev</span><span class="p">,</span> <span class="nx">current</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">current</span> <span class="o">+</span> <span class="nx">prev</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">totalLength</span> <span class="o">&gt;=</span> <span class="nx">MIN_PARAGRAPH_LENGTH</span><span class="p">)</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">getNumParagraphsInAllDivs</span><span class="p">(</span><span class="nx">highestScoringParagraphs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">divFnodes</span> <span class="o">=</span> <span class="nx">highestScoringParagraphs</span><span class="p">.</span><span class="nx">filter</span><span class="p">(({</span><span class="nx">element</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="nx">element</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="s2">&quot;DIV&quot;</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">divFnodes</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">accumulator</span><span class="p">,</span> <span class="nx">currentValue</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">accumulator</span> <span class="o">+</span> <span class="nx">currentValue</span><span class="p">.</span><span class="nx">noteFor</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">);</span>
+  <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Returns true if an element&#39;s center coordinates are somewhere likely to be the main content area of the page.</span>
+<span class="kd">function</span> <span class="nx">elementIsInTheMainContentArea</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">{</span><span class="nx">left</span><span class="p">,</span> <span class="nx">top</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">}</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+  <span class="kr">const</span> <span class="p">[</span><span class="nx">xCenter</span><span class="p">,</span> <span class="nx">yCenter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">left</span> <span class="o">+</span> <span class="p">(</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="nx">top</span> <span class="o">+</span> <span class="p">(</span><span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)];</span>
+  <span class="c1">// Get the middle 50% area of the page in the x-direction (TODO: Optimize %).</span>
+  <span class="kr">const</span> <span class="nx">win</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">docLeftCutoff</span> <span class="o">=</span> <span class="nx">win</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">docRightCutoff</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="nx">win</span><span class="p">.</span><span class="nx">innerWidth</span> <span class="o">/</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">MAIN_CONTENT_VERTICAL_CUTOFF</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span> <span class="c1">// TODO Optimize</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">xCenter</span> <span class="o">&gt;=</span> <span class="nx">docLeftCutoff</span> <span class="o">&amp;&amp;</span> <span class="nx">xCenter</span> <span class="o">&lt;=</span> <span class="nx">docRightCutoff</span> <span class="o">&amp;&amp;</span> <span class="nx">yCenter</span> <span class="o">&gt;=</span> <span class="nx">MAIN_CONTENT_VERTICAL_CUTOFF</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="cm">/**</span>
+<span class="cm">* Positive ``when`` callbacks</span>
+<span class="cm">*/</span>
+<span class="kd">function</span> <span class="nx">isElementVisible</span><span class="p">({</span><span class="nx">element</span><span class="p">})</span> <span class="p">{</span>
+  <span class="c1">// Have to null-check element.style to deal with SVG and MathML nodes.</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">(</span><span class="o">!</span><span class="nx">element</span><span class="p">.</span><span class="nx">style</span> <span class="o">||</span> <span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">!=</span> <span class="s2">&quot;none&quot;</span><span class="p">)</span>
+    <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">element</span><span class="p">.</span><span class="nx">hasAttribute</span><span class="p">(</span><span class="s2">&quot;hidden&quot;</span><span class="p">)</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">divHasOnlyTextNodesAnchorElementsOrSpanElements</span><span class="p">({</span><span class="nx">element</span><span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">).</span><span class="nx">every</span><span class="p">(</span><span class="nx">node</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">===</span> <span class="nx">Node</span><span class="p">.</span><span class="nx">TEXT_NODE</span> <span class="o">||</span> <span class="nx">node</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="s2">&quot;A&quot;</span> <span class="o">||</span> <span class="nx">node</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="s2">&quot;SPAN&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">divHasBrChildElement</span><span class="p">({</span><span class="nx">element</span><span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">some</span><span class="p">((</span><span class="nx">childEle</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">childEle</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="s2">&quot;BR&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">* Negative &quot;paragraph&quot; rules</span>
+<span class="cm">*/</span>
+<span class="kd">function</span> <span class="nx">pElementHasListItemAncestor</span><span class="p">({</span><span class="nx">element</span><span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">element</span><span class="p">.</span><span class="nx">matches</span><span class="p">(</span><span class="s2">&quot;li p&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// This probably means this is just a preview of a complete paragraph</span>
+<span class="kd">function</span> <span class="nx">containsElipsisAtEndOfText</span><span class="p">({</span><span class="nx">element</span><span class="p">})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">element</span><span class="p">.</span><span class="nx">innerText</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Modeled after toolkit/components/reader/Readability-readerable.js in Firefox</span>
+<span class="kd">function</span> <span class="nx">classNameOfSelfOrParentContainsUnlikelyWord</span><span class="p">({</span><span class="nx">element</span><span class="p">})</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">matchString</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">element</span><span class="p">.</span><span class="nx">className</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">UNLIKELY_WORDS_IN_PARAGRAPH_CLASSNAMES</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">matchString</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">* Positive &quot;paragraph&quot; rules</span>
+<span class="cm">*/</span>
+<span class="kd">function</span> <span class="nx">hasLongTextContent</span><span class="p">({</span><span class="nx">element</span><span class="p">})</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">textContentLength</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">textContent</span><span class="p">.</span><span class="nx">trim</span><span class="p">().</span><span class="nx">length</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">linearScale</span><span class="p">(</span><span class="nx">textContentLength</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">MIN_PARAGRAPH_LENGTH</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">getHighestScoringParagraphs</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">fnode</span><span class="p">.</span><span class="nx">_ruleset</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">* Negative &quot;article rules&quot;</span>
+<span class="cm">*/</span>
+<span class="c1">// Often homepages of news websites have article previews (i.e. not a single, encapsulated article).</span>
+<span class="kd">function</span> <span class="nx">hasMultipleArticleElements</span><span class="p">({</span><span class="nx">element</span><span class="p">})</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">doc</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">articleElements</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">articleElements</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">hasMultipleParagraphsWhoseClassNameIncludesArticle</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">highestScoringParagraphs</span> <span class="o">=</span> <span class="nx">highestScoringParagraphs</span> <span class="o">||</span> <span class="nx">getHighestScoringParagraphs</span><span class="p">(</span><span class="nx">fnode</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">paragraphsWithArticleInClassName</span> <span class="o">=</span> <span class="nx">highestScoringParagraphs</span><span class="p">.</span><span class="nx">filter</span><span class="p">(({</span><span class="nx">element</span><span class="p">})</span> <span class="p">=&gt;</span> <span class="nx">element</span><span class="p">.</span><span class="nx">className</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">));</span>
+  <span class="k">return</span> <span class="nx">paragraphsWithArticleInClassName</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">* Positive &quot;article&quot; rules</span>
+<span class="cm">*/</span>
+<span class="kd">function</span> <span class="nx">hasEnoughParagraphs</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">highestScoringParagraphs</span> <span class="o">=</span> <span class="nx">highestScoringParagraphs</span> <span class="o">||</span> <span class="nx">getHighestScoringParagraphs</span><span class="p">(</span><span class="nx">fnode</span><span class="p">);</span>
+  <span class="nx">numParagraphsInAllDivs</span> <span class="o">=</span> <span class="nx">numParagraphsInAllDivs</span> <span class="o">||</span> <span class="nx">getNumParagraphsInAllDivs</span><span class="p">(</span><span class="nx">highestScoringParagraphs</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">highestScoringParagraphs</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="nx">numParagraphsInAllDivs</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="p">;</span> <span class="c1">// Optimized with 40 training samples</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">hasExactlyOneArticleElement</span><span class="p">({</span><span class="nx">element</span><span class="p">})</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">doc</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">articleElements</span> <span class="o">=</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">);</span>
+  <span class="c1">// TODO: May want to award less points the more article elements a page has. Revisit.</span>
+  <span class="k">return</span> <span class="nx">articleElements</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">paragraphElementsHaveSiblingsWithSameTagName</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">highestScoringParagraphs</span> <span class="o">=</span> <span class="nx">highestScoringParagraphs</span> <span class="o">||</span> <span class="nx">getHighestScoringParagraphs</span><span class="p">(</span><span class="nx">fnode</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">numSiblingsPerParagraphNode</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">fnode</span> <span class="k">of</span> <span class="nx">highestScoringParagraphs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span><span class="nx">element</span><span class="p">}</span> <span class="o">=</span> <span class="nx">fnode</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">siblingsWithSameTagName</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="s2">&quot;DIV&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">numParagraphs</span> <span class="o">=</span> <span class="nx">fnode</span><span class="p">.</span><span class="nx">noteFor</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">);</span>
+      <span class="nx">siblingsWithSameTagName</span> <span class="o">=</span> <span class="nx">numParagraphs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">siblingsWithSameTagName</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span>
+        <span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">children</span>
+      <span class="p">).</span><span class="nx">filter</span><span class="p">(</span>
+        <span class="nx">node</span> <span class="p">=&gt;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">===</span> <span class="nx">element</span><span class="p">.</span><span class="nx">tagName</span> <span class="o">&amp;&amp;</span> <span class="nx">node</span> <span class="o">!==</span> <span class="nx">element</span>
+      <span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">numSiblingsPerParagraphNode</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">siblingsWithSameTagName</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kr">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">numSiblingsPerParagraphNode</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">prev</span><span class="p">,</span> <span class="nx">current</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">current</span> <span class="o">+</span> <span class="nx">prev</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="c1">// average sibling count per highest scoring paragraph node; divide by 0 returns NaN which makes the feature return false</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">sum</span> <span class="o">/</span> <span class="nx">numSiblingsPerParagraphNode</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// Optimized with 40 training samples</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">mostParagraphElementsAreHorizontallyAligned</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// TODO: Include paragraphs inside divs with brs, see &#39;getNumParagraphsInAllDivs&#39;</span>
+  <span class="nx">highestScoringParagraphs</span> <span class="o">=</span> <span class="nx">highestScoringParagraphs</span> <span class="o">||</span> <span class="nx">getHighestScoringParagraphs</span><span class="p">(</span><span class="nx">fnode</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">leftPositionVsFrequency</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">{</span><span class="nx">element</span><span class="p">}</span> <span class="k">of</span> <span class="nx">highestScoringParagraphs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">left</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">leftPositionVsFrequency</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">left</span><span class="p">)</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">leftPositionVsFrequency</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">leftPositionVsFrequency</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">leftPositionVsFrequency</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">left</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kr">const</span> <span class="nx">totals</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// Each element (int) corresponds to the number of paragraphs with the same left position</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">total</span> <span class="k">of</span> <span class="nx">leftPositionVsFrequency</span><span class="p">.</span><span class="nx">values</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nx">totals</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">total</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kr">const</span> <span class="nx">maxNumParagraphsWithSameLeftPosition</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">totals</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">highestScoringParagraphs</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Avoid divide by 0 errors, and we don&#39;t want to give a page that only has one paragraph the max score;</span>
+    <span class="c1">// this rule is intended to compare a paragraph&#39;s left position relative to other paragraphs.</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">maxNumParagraphsWithSameLeftPosition</span> <span class="o">/</span> <span class="nx">highestScoringParagraphs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">moreParagraphElementsThanListItemsOrTableRows</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">highestScoringParagraphs</span> <span class="o">=</span> <span class="nx">highestScoringParagraphs</span> <span class="o">||</span> <span class="nx">getHighestScoringParagraphs</span><span class="p">(</span><span class="nx">fnode</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">numParagraphElements</span> <span class="o">=</span> <span class="nx">highestScoringParagraphs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">doc</span> <span class="o">=</span> <span class="nx">fnode</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">ownerDocument</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">tableRowElements</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;tr&quot;</span><span class="p">)).</span><span class="nx">filter</span><span class="p">(</span><span class="nx">node</span> <span class="p">=&gt;</span> <span class="nx">elementIsInTheMainContentArea</span><span class="p">(</span><span class="nx">node</span><span class="p">));</span>
+  <span class="kr">const</span> <span class="nx">listItemElements</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">doc</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;li&quot;</span><span class="p">)).</span><span class="nx">filter</span><span class="p">(</span><span class="nx">node</span> <span class="p">=&gt;</span> <span class="nx">elementIsInTheMainContentArea</span><span class="p">(</span><span class="nx">node</span><span class="p">));</span>
+  <span class="c1">// TODO: Include paragraphs inside divs with brs, see &#39;getNumParagraphsInAllDivs&#39;</span>
+  <span class="c1">// TODO: the greater the difference, the higher the score</span>
+  <span class="k">return</span> <span class="nx">numParagraphElements</span> <span class="o">&gt;</span> <span class="nx">tableRowElements</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">numParagraphElements</span> <span class="o">&gt;</span> <span class="nx">listItemElements</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">headerElementIsSiblingToParagraphElements</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">headerTagNames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;H1&quot;</span><span class="p">,</span> <span class="s2">&quot;H2&quot;</span><span class="p">];</span>
+  <span class="kd">let</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">highestScoringParagraphs</span> <span class="o">=</span> <span class="nx">highestScoringParagraphs</span> <span class="o">||</span> <span class="nx">getHighestScoringParagraphs</span><span class="p">(</span><span class="nx">fnode</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="p">{</span><span class="nx">element</span><span class="p">}</span> <span class="k">of</span> <span class="nx">highestScoringParagraphs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">siblings</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">children</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="nx">node</span> <span class="p">=&gt;</span> <span class="nx">node</span> <span class="o">!==</span> <span class="nx">element</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">siblings</span><span class="p">.</span><span class="nx">some</span><span class="p">(</span><span class="nx">sibling</span> <span class="p">=&gt;</span> <span class="nx">headerTagNames</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">sibling</span><span class="p">.</span><span class="nx">tagName</span><span class="p">)))</span> <span class="p">{</span>
+      <span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="c1">// TODO: Include paragraphs inside divs with brs, see &#39;getNumParagraphsInAllDivs&#39;</span>
+  <span class="k">return</span> <span class="nx">linearScale</span><span class="p">(</span><span class="nx">counter</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span> <span class="c1">// oneAt cut-off optimized with 40 samples</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">makeRuleset</span><span class="p">(</span><span class="nx">coeffs</span><span class="p">,</span> <span class="nx">biases</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">ruleset</span><span class="p">([</span>
+    <span class="cm">/**</span>
+<span class="cm">      * Paragraph rules</span>
+<span class="cm">    */</span>
+    <span class="c1">// Consider all visible paragraph-ish elements</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">dom</span><span class="p">(</span><span class="s2">&quot;p, pre&quot;</span><span class="p">).</span><span class="nx">when</span><span class="p">(</span><span class="nx">isElementVisible</span><span class="p">),</span> <span class="nx">type</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">)),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">dom</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">when</span><span class="p">(</span><span class="nx">isElementVisible</span><span class="p">).</span><span class="nx">when</span><span class="p">(</span><span class="nx">divHasBrChildElement</span><span class="p">),</span> <span class="nx">type</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">).</span><span class="nx">note</span><span class="p">(</span><span class="nx">numParagraphTextNodesInDiv</span><span class="p">)),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">dom</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">when</span><span class="p">(</span><span class="nx">isElementVisible</span><span class="p">).</span><span class="nx">when</span><span class="p">(</span><span class="nx">divHasOnlyTextNodesAnchorElementsOrSpanElements</span><span class="p">),</span> <span class="nx">type</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">).</span><span class="nx">note</span><span class="p">(</span><span class="nx">numParagraphTextNodesInDiv</span><span class="p">)),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">pElementHasListItemAncestor</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;pElementHasListItemAncestor&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">hasLongTextContent</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;hasLongTextContent&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">containsElipsisAtEndOfText</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;containsElipsisAtEndOfText&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">classNameOfSelfOrParentContainsUnlikelyWord</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;classNameOfSelfOrParentContainsUnlikelyWord&quot;</span><span class="p">}),</span>
+    <span class="c1">// return paragraph-ish element(s) with max score</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">).</span><span class="nx">max</span><span class="p">(),</span> <span class="nx">out</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">)),</span>
+
+    <span class="cm">/**</span>
+<span class="cm">      * Article rules</span>
+<span class="cm">    */</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">dom</span><span class="p">(</span><span class="s2">&quot;html&quot;</span><span class="p">),</span> <span class="nx">type</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">)),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">hasEnoughParagraphs</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;hasEnoughParagraphs&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">hasExactlyOneArticleElement</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;hasExactlyOneArticleElement&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">paragraphElementsHaveSiblingsWithSameTagName</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;paragraphElementsHaveSiblingsWithSameTagName&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">mostParagraphElementsAreHorizontallyAligned</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;mostParagraphElementsAreHorizontallyAligned&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">moreParagraphElementsThanListItemsOrTableRows</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;moreParagraphElementsThanListItemsOrTableRows&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">headerElementIsSiblingToParagraphElements</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;headerElementIsSiblingToParagraphElements&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">hasMultipleArticleElements</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;hasMultipleArticleElements&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">hasMultipleParagraphsWhoseClassNameIncludesArticle</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;hasMultipleParagraphsWhoseClassNameIncludesArticle&quot;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">),</span> <span class="nx">out</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">))</span>
+  <span class="p">],</span>
+  <span class="nx">coeffs</span><span class="p">,</span>
+  <span class="nx">biases</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="cm">/**</span>
+<span class="cm">* FathomFox sends the fathom-trainees extension a ``trainees`` object to execute the Fathom ruleset on the page.</span>
+<span class="cm">*/</span>
+<span class="kr">const</span> <span class="nx">trainees</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">VIEWPORT_SIZE</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">width</span><span class="o">:</span> <span class="mi">1680</span><span class="p">,</span>
+  <span class="nx">height</span><span class="o">:</span> <span class="mi">950</span>
+<span class="p">};</span>
+
+<span class="kr">const</span> <span class="nx">FEATURES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;paragraph&quot;</span><span class="p">,</span> <span class="s2">&quot;article&quot;</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">feature</span> <span class="k">of</span> <span class="nx">FEATURES</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">ruleset</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">coeffs</span><span class="o">:</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">(</span><span class="nx">coefficients</span><span class="p">[</span><span class="nx">feature</span><span class="p">]),</span>
+    <span class="nx">viewportSize</span><span class="o">:</span> <span class="nx">VIEWPORT_SIZE</span><span class="p">,</span>
+    <span class="nx">vectorType</span><span class="o">:</span> <span class="nx">feature</span><span class="p">,</span>
+    <span class="nx">rulesetMaker</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">makeRuleset</span><span class="p">([</span>
+      <span class="p">...</span><span class="nx">coefficients</span><span class="p">.</span><span class="nx">paragraph</span><span class="p">,</span>
+      <span class="p">...</span><span class="nx">coefficients</span><span class="p">.</span><span class="nx">article</span><span class="p">,</span>
+    <span class="p">],</span> <span class="nx">biases</span><span class="p">),</span>
+  <span class="p">};</span>
+  <span class="nx">trainees</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span> <span class="nx">ruleset</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">trainees</span><span class="p">;</span>
+
+
+<span class="cm">/**</span>
+<span class="cm">* Ruleset development helpers</span>
+<span class="cm">*</span>
+<span class="cm">* These helpers run each Fathom ruleset when the page is loaded; this allows debugging and iterating without</span>
+<span class="cm">* having to use the Vectorizer. These would not ship with the ruleset in the Fathom application.</span>
+<span class="cm">*/</span>
+<span class="kd">function</span> <span class="nx">getHighestScoringParagraphElements</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">rules</span> <span class="o">=</span> <span class="nx">makeRuleset</span><span class="p">([</span>
+    <span class="p">...</span><span class="nx">coefficients</span><span class="p">.</span><span class="nx">paragraph</span><span class="p">,</span>
+    <span class="p">...</span><span class="nx">coefficients</span><span class="p">.</span><span class="nx">article</span><span class="p">,</span>
+  <span class="p">],</span> <span class="nx">biases</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">rules</span><span class="p">.</span><span class="nx">against</span><span class="p">(</span><span class="nb">document</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">fnodesList</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">elementsList</span> <span class="o">=</span> <span class="nx">fnodesList</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">fnode</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">elementToScore</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+  <span class="nx">fnodesList</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">fnode</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">elementToScore</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">fnode</span><span class="p">.</span><span class="nx">element</span><span class="p">,</span> <span class="nx">fnode</span><span class="p">.</span><span class="nx">scoreFor</span><span class="p">(</span><span class="s2">&quot;paragraph&quot;</span><span class="p">));</span>
+  <span class="p">});</span>
+  <span class="k">return</span> <span class="nx">elementsList</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">highScoringParagraphElementsList</span> <span class="o">=</span> <span class="nx">getHighestScoringParagraphElements</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">allParagraphTargetElements</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;*[data-fathom=&#39;paragraph&#39;]&quot;</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">falseNegativesParagraphs</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// target elements that Fathom doesn&#39;t find</span>
+<span class="kr">const</span> <span class="nx">falsePositivesParagraphs</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// candidate elements that Fathom wrongly thinks are targets</span>
+<span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">element</span> <span class="k">of</span> <span class="nx">allParagraphTargetElements</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">highScoringParagraphElementsList</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">element</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">falseNegativesParagraphs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">element</span> <span class="k">of</span> <span class="nx">highScoringParagraphElementsList</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">allParagraphTargetElements</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">element</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">falsePositivesParagraphs</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;False Negatives Paragraph: &quot;</span><span class="p">,</span> <span class="nx">falseNegativesParagraphs</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;False Positives Paragraph: &quot;</span><span class="p">,</span> <span class="nx">falsePositivesParagraphs</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">getHighestScoringArticleElement</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">rules</span> <span class="o">=</span> <span class="nx">makeRuleset</span><span class="p">([</span>
+    <span class="p">...</span><span class="nx">coefficients</span><span class="p">.</span><span class="nx">paragraph</span><span class="p">,</span>
+    <span class="p">...</span><span class="nx">coefficients</span><span class="p">.</span><span class="nx">article</span><span class="p">,</span>
+  <span class="p">],</span> <span class="nx">biases</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">rules</span><span class="p">.</span><span class="nx">against</span><span class="p">(</span><span class="nb">document</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">fnodesList</span> <span class="o">=</span> <span class="nx">results</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">elementsList</span> <span class="o">=</span> <span class="nx">fnodesList</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">fnode</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+  <span class="kr">const</span> <span class="nx">elementToScore</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span>
+  <span class="nx">fnodesList</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">fnode</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">elementToScore</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">fnode</span><span class="p">.</span><span class="nx">element</span><span class="p">,</span> <span class="nx">fnode</span><span class="p">.</span><span class="nx">scoreFor</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">));</span>
+  <span class="p">});</span>
+  <span class="k">return</span> <span class="nx">elementsList</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">highScoringArticleElementsList</span> <span class="o">=</span> <span class="nx">getHighestScoringArticleElement</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">allArticleTargetElements</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;*[data-fathom=&#39;article&#39;]&quot;</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">falseNegativesArticle</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// target elements that Fathom doesn&#39;t find</span>
+<span class="kr">const</span> <span class="nx">falsePositivesArticle</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// candidate elements that Fathom wrongly thinks are targets</span>
+<span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">element</span> <span class="k">of</span> <span class="nx">allArticleTargetElements</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">highScoringArticleElementsList</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">element</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">falseNegativesArticle</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">element</span> <span class="k">of</span> <span class="nx">highScoringArticleElementsList</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">allArticleTargetElements</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">element</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">falsePositivesArticle</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;False Negatives Article: &quot;</span><span class="p">,</span> <span class="nx">falseNegativesArticle</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;False Positives Article: &quot;</span><span class="p">,</span> <span class="nx">falsePositivesArticle</span><span class="p">);</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="smoot_shopping.html" class="btn btn-neutral float-right" title="Smoot Shopping Ruleset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="login.html" class="btn btn-neutral float-left" title="Login Forms Ruleset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

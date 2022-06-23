@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fathom train &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Example Ruleset" href="../example.html" />
+    <link rel="prev" title="fathom test" href="test.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../samples.html">Collecting Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.html">fathom test</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>fathom train</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/commands/train.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fathom-train">
+<h1>fathom train<a class="headerlink" href="#fathom-train" title="Permalink to this headline">¶</a></h1>
+<p>Compute optimal numerical parameters for a Fathom ruleset.</p>
+<p>The usual invocation is something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fathom</span> <span class="n">train</span> <span class="n">samples</span><span class="o">/</span><span class="n">training</span> <span class="o">--</span><span class="n">validation</span><span class="o">-</span><span class="nb">set</span> <span class="n">samples</span><span class="o">/</span><span class="n">validation</span> <span class="o">--</span><span class="n">ruleset</span> <span class="n">rulesets</span><span class="o">.</span><span class="n">js</span> <span class="o">--</span><span class="n">trainee</span> <span class="n">new</span>
+</pre></div>
+</div>
+<p>The first argument is a directory of labeled training pages. It can also
+be, for backward compatibility, a JSON file of vectors from FathomFox’s
+Vectorizer.</p>
+<p>To see graphs of loss functions, install TensorBoard, then run
+<code class="docutils literal notranslate"><span class="pre">tensorboard</span> <span class="pre">--logdir</span> <span class="pre">runs/</span></code>. These will tell you whether you need to
+adjust the <code class="docutils literal notranslate"><span class="pre">--learning-rate</span></code>.</p>
+<p>Definitions of terms used in output:</p>
+<div class="line-block">
+<div class="line">pruned</div>
+<div class="line-block">
+<div class="line">Said of a node that was prematurely eliminated from consideration</div>
+<div class="line">because it did not match the selector of any <code class="docutils literal notranslate"><span class="pre">dom()</span></code> call in the</div>
+<div class="line">ruleset</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">target</div>
+<div class="line-block">
+<div class="line">A “right answer”: a labeled, positive DOM node, one that should be</div>
+<div class="line">recognized.</div>
+</div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>fathom train <span class="o">[</span>OPTIONS<span class="o">]</span> TRAINING_SET_FOLDER
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="std option">
+<dt id="cmdoption-fathom-train-r">
+<span id="cmdoption-fathom-train-ruleset"></span><code class="sig-name descname">-r</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--ruleset</code><code class="sig-prename descclassname"> &lt;ruleset&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-r" title="Permalink to this definition">¶</a></dt>
+<dd><p>The rulesets.js file containing your rules. The file must have no imports except from fathom-web, so pre-bundle if necessary.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-trainee">
+<code class="sig-name descname">--trainee</code><code class="sig-prename descclassname"> &lt;trainee&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-trainee" title="Permalink to this definition">¶</a></dt>
+<dd><p>The trainee ID of the ruleset you want to train. Usually, this is the same as the type you are training for.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-training-cache">
+<code class="sig-name descname">--training-cache</code><code class="sig-prename descclassname"> &lt;training_cache&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-training-cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where to cache training vectors to speed future training runs. Any existing file will be overwritten. [default: vectors/training_yourTraineeId.json next to your ruleset]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-validation-cache">
+<code class="sig-name descname">--validation-cache</code><code class="sig-prename descclassname"> &lt;validation_cache&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-validation-cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Where to cache validation vectors to speed future training runs. Any existing file will be overwritten. [default: vectors/validation_yourTraineeId.json next to your ruleset]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-delay">
+<code class="sig-name descname">--delay</code><code class="sig-prename descclassname"> &lt;delay&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of seconds to wait for a page to load before vectorizing it  [default: 5]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-tabs">
+<code class="sig-name descname">--tabs</code><code class="sig-prename descclassname"> &lt;tabs&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-tabs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of concurrent browser tabs to use while vectorizing  [default: 16]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-show-browser">
+<code class="sig-name descname">--show-browser</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-fathom-train-show-browser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show browser window while vectorizing. (Browser runs in headless mode by default.)</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-a">
+<span id="cmdoption-fathom-train-validation-set"></span><code class="sig-name descname">-a</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--validation-set</code><code class="sig-prename descclassname"> &lt;validation_set&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Either a folder of validation pages or a JSON file made manually by FathomFox’s Vectorizer. Validation pages are used to avoid overfitting.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-s">
+<span id="cmdoption-fathom-train-stop-early"></span><span id="cmdoption-fathom-train-no-early-stopping"></span><code class="sig-name descname">-s</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--stop-early</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--no-early-stopping</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-fathom-train-s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop 1 iteration before validation loss begins to rise, to avoid overfitting. Before using this, check Tensorboard graphs to make sure validation loss is monotonically decreasing.  [default: True]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-l">
+<span id="cmdoption-fathom-train-learning-rate"></span><code class="sig-name descname">-l</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--learning-rate</code><code class="sig-prename descclassname"> &lt;learning_rate&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-l" title="Permalink to this definition">¶</a></dt>
+<dd><p>The learning rate to start from  [default: 1.0]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-i">
+<span id="cmdoption-fathom-train-iterations"></span><code class="sig-name descname">-i</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--iterations</code><code class="sig-prename descclassname"> &lt;iterations&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-i" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of training iterations to run through  [default: 1000]</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-p">
+<span id="cmdoption-fathom-train-pos-weight"></span><code class="sig-name descname">-p</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--pos-weight</code><code class="sig-prename descclassname"> &lt;pos_weight&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-p" title="Permalink to this definition">¶</a></dt>
+<dd><p>The weighting factor given to all positive samples by the loss function. Raise this to increase recall at the expense of precision. See: <a class="reference external" href="https://pytorch.org/docs/stable/nn.html#bcewithlogitsloss">https://pytorch.org/docs/stable/nn.html#bcewithlogitsloss</a></p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-c">
+<span id="cmdoption-fathom-train-comment"></span><code class="sig-name descname">-c</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--comment</code><code class="sig-prename descclassname"> &lt;comment&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-c" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional comment to append to the Tensorboard run name, for display in the web UI</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-q">
+<span id="cmdoption-fathom-train-quiet"></span><code class="sig-name descname">-q</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--quiet</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-fathom-train-q" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide per-tag diagnostics that may help with ruleset debugging.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-y">
+<span id="cmdoption-fathom-train-layer"></span><code class="sig-name descname">-y</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--layer</code><code class="sig-prename descclassname"> &lt;layers&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a hidden layer of the given size. You can specify more than one, and they will be connected in the given order. EXPERIMENTAL.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt id="cmdoption-fathom-train-x">
+<span id="cmdoption-fathom-train-exclude"></span><code class="sig-name descname">-x</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--exclude</code><code class="sig-prename descclassname"> &lt;exclude&gt;</code><a class="headerlink" href="#cmdoption-fathom-train-x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exclude a rule while training. This helps with before-and-after tests to see if a rule is effective.</p>
+</dd></dl>
+
+<p class="rubric">Arguments</p>
+<dl class="std option">
+<dt id="cmdoption-fathom-train-arg-TRAINING_SET_FOLDER">
+<code class="sig-name descname">TRAINING_SET_FOLDER</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-fathom-train-arg-TRAINING_SET_FOLDER" title="Permalink to this definition">¶</a></dt>
+<dd><p>Required argument</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../example.html" class="btn btn-neutral float-right" title="Example Ruleset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="test.html" class="btn btn-neutral float-left" title="fathom test" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

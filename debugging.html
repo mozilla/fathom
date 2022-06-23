@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Debugging &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Integrating" href="integrating.html" />
+    <link rel="prev" title="Training" href="training.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">Collecting Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-breakpoints">Setting Breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#identifying-misrecognized-elements">Identifying Misrecognized Elements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#histograms">Histograms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commands/extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/test.html">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Debugging</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/debugging.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="debugging">
+<h1>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setting-breakpoints">
+<h2>Setting Breakpoints<a class="headerlink" href="#setting-breakpoints" title="Permalink to this headline">¶</a></h2>
+<p>If the <a class="reference internal" href="training.html"><span class="doc">trainer</span></a> reports JavaScript errors, you’ve probably got a bug in your ruleset code. If you can’t find it by examination and need to place a breakpoint, the tool of choice is the FathomFox Evaluator.</p>
+<ol class="arabic">
+<li><p>Run <a class="reference internal" href="commands/fox.html"><span class="doc">fathom fox</span></a>, and pass it your ruleset:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fathom</span> <span class="n">fox</span> <span class="o">-</span><span class="n">r</span> <span class="n">rulesets</span><span class="o">.</span><span class="n">js</span>
+</pre></div>
+</div>
+</li>
+<li><p>Use the instance of Firefox that comes up to open a page that you think will reproduce the problem.</p></li>
+<li><p>Show the dev tools, and navigate to the Debugger panel.</p></li>
+<li><p>In the disclosure tree to the left, disclose FathomFox, and select <cite>rulesets.js</cite>.</p></li>
+<li><p>Scroll to the bottom, past the minified mess, and you’ll see your ruleset code. Place a breakpoint as you like, probably in one of your scoring callbacks.</p></li>
+<li><p>Invoke the Evaluator from the Fathom toolbar menu.</p></li>
+<li><p>Click Evaluate to run the ruleset over the loaded tabs.</p></li>
+</ol>
+<p>You’ll end up in the debugger, paused at your breakpoint.</p>
+</div>
+<div class="section" id="identifying-misrecognized-elements">
+<h2>Identifying Misrecognized Elements<a class="headerlink" href="#identifying-misrecognized-elements" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure you have the latest trained coefficients and biases pasted into your ruleset before you do this, or recognition won’t work well.</p>
+</div>
+<p>FathomFox’s Evaluator can point out misrecognized elements, in case the tag exerpts emitted by the trainer are insufficient to identify them. To use the Evaluator:</p>
+<ol class="arabic simple">
+<li><p>Open an instance of Firefox with FathomFox and your ruleset loaded (<code class="docutils literal notranslate"><span class="pre">fathom-fox</span> <span class="pre">-r</span> <span class="pre">rulesets.js</span></code> makes this simple).</p></li>
+<li><p>Open all of the samples you want to diagnose as separate tabs.</p></li>
+<li><p>Open the Evaluator page using FathomFox’s browser action button.</p></li>
+<li><p>In the Trainee dropdown, select the trainee you want to diagnose.</p></li>
+<li><p>Click the Evaluate button.</p></li>
+<li><p>Click any red box to navigate to a page with misrecognized nodes.</p></li>
+<li><p>On that tab, open the dev tools panel (ctrl-shift-N) and switch to the Fathom panel. Unfortunately, there aren’t yet web extension APIs to do this part automatically.</p></li>
+<li><p>At this point, you’ll see a quick and dirty representation of the “bad” element: a new label called “BAD [the trainee]”. Be sure to delete this if you choose to re-save the page for some reason. Also note that the BAD label is created only when the bad cell is clicked, for speed; if you navigate to the bad page manually, the label won’t be there, or there might be an old label from a previous iteration.</p></li>
+<li><p>Return to the Evaluator tab and click any other red boxes you want to explore.</p></li>
+</ol>
+</div>
+<div class="section" id="histograms">
+<h2>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h2>
+<p>Finally, a great way to examine the scores your rules are emitting is <a class="reference internal" href="commands/histogram.html"><span class="doc">fathom histogram</span></a>. It can show you how useful a discriminator a rule is and help you notice when the distribution of output values is not what you expect.</p>
+<img alt="_images/histogram.png" src="_images/histogram.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="integrating.html" class="btn btn-neutral float-right" title="Integrating" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="training.html" class="btn btn-neutral float-left" title="Training" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,616 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Utility Functions &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="fathom extract" href="commands/extract.html" />
+    <link rel="prev" title="Rules and Rulesets" href="ruleset.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">Collecting Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commands/extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/test.html">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Utility Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/utilities.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="utility-functions">
+<h1>Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this headline">¶</a></h1>
+<p>In addition to components intrinsically tied to rulesets, Fathom comes with a variety of utility procedures for building scoring and other callback functions or just for improving the imperative shell around your ruleset.</p>
+<p>The utilities hang off a <code class="docutils literal notranslate"><span class="pre">utils</span></code> object in the top-level Fathom module. To import them, do something like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span>
+  <span class="nx">utils</span><span class="o">:</span> <span class="p">{</span> <span class="nx">isBlock</span><span class="p">,</span> <span class="nx">isVisible</span> <span class="p">},</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fathom-web&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This will result in top-level <code class="docutils literal notranslate"><span class="pre">isBlock</span></code> and <code class="docutils literal notranslate"><span class="pre">isVisible</span></code> symbols.</p>
+<dl class="js function">
+<dt id="ancestors">
+<code class="sig-name descname">ancestors</code><span class="sig-paren">(</span><em class="sig-param">element</em><span class="sig-paren">)</span><a class="headerlink" href="#ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield an element and each of its ancestors.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="attributesMatch">
+<code class="sig-name descname">attributesMatch</code><span class="sig-paren">(</span><em class="sig-param">element</em>, <em class="sig-param">predicate</em>, <em class="sig-param">attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#attributesMatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether any of the element’s attribute values satisfy some condition.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rule(type(&#39;foo&#39;),
+     score(attributesMatch(element,
+                           attr =&gt; attr.includes(&#39;good&#39;),
+                           [&#39;id&#39;, &#39;alt&#39;]) ? 2 : 1))
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element</strong> (<em>Node</em>) – Element whose attributes you want to search</p></li>
+<li><p><strong>predicate</strong> (<em>function</em>) – A condition to check. Take a string and return a boolean. If an attribute has multiple values (e.g. the class attribute), attributesMatch will check each one.</p></li>
+<li><p><strong>attrs</strong> (<em>Array.&lt;string&gt;</em>) – An Array of attributes you want to search. If none are provided, search all.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Whether any of the attribute values satisfy the predicate function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="best">
+<code class="sig-name descname">best</code><span class="sig-paren">(</span><em class="sig-param">by</em>, <em class="sig-param">isBetter</em><span class="sig-paren">)</span><a class="headerlink" href="#best" title="Permalink to this definition">¶</a></dt>
+<dd><p>From an iterable return the best item, according to an arbitrary comparator
+function. In case of a tie, the first item wins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>by</strong> (<em>function</em>) – Given an item of the iterable, return a value to compare</p></li>
+<li><p><strong>isBetter</strong> (<em>function</em>) – Return whether its first arg is better than its second</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="collapseWhitespace">
+<code class="sig-name descname">collapseWhitespace</code><span class="sig-paren">(</span><em class="sig-param">str</em><span class="sig-paren">)</span><a class="headerlink" href="#collapseWhitespace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string with each run of whitespace collapsed to a single space.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="domSort">
+<code class="sig-name descname">domSort</code><span class="sig-paren">(</span><em class="sig-param">fnodes</em><span class="sig-paren">)</span><a class="headerlink" href="#domSort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort the elements by their position in the DOM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fnodes</strong> (<em>iterable</em>) – fnodes to sort</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Array</strong> – sorted fnodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="first">
+<code class="sig-name descname">first</code><span class="sig-paren">(</span><em class="sig-param">iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#first" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the first item of an iterable.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="getDefault">
+<code class="sig-name descname">getDefault</code><span class="sig-paren">(</span><em class="sig-param">map</em>, <em class="sig-param">key</em>, <em class="sig-param">defaultMaker</em><span class="sig-paren">)</span><a class="headerlink" href="#getDefault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a key of a map or, if it’s missing, a default value.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="identity">
+<code class="sig-name descname">identity</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the passed-in arg. Useful as a default.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="inlineTextLength">
+<code class="sig-name descname">inlineTextLength</code><span class="sig-paren">(</span><em class="sig-param">shouldTraverse</em><span class="sig-paren">)</span><a class="headerlink" href="#inlineTextLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total length of the inline text within an element, with
+whitespace collapsed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shouldTraverse</strong> (<em>function</em>) – Specify additional elements to exclude by returning false</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="inlineTexts">
+<code class="sig-name descname">inlineTexts</code><span class="sig-paren">(</span><em class="sig-param">shouldTraverse</em><span class="sig-paren">)</span><a class="headerlink" href="#inlineTexts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield strings of text nodes within a normalized DOM node and its children,
+without venturing into any contained block elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shouldTraverse</strong> (<em>function</em>) – Specify additional elements to exclude by returning false</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="isBlock">
+<code class="sig-name descname">isBlock</code><span class="sig-paren">(</span><em class="sig-param">element</em><span class="sig-paren">)</span><a class="headerlink" href="#isBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a DOM element is a block element by default (rather than by
+styling).</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="isVisible">
+<code class="sig-name descname">isVisible</code><span class="sig-paren">(</span><em class="sig-param">fnodeOrElement</em><span class="sig-paren">)</span><a class="headerlink" href="#isVisible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether an element is practically visible, considering things like 0
+size or opacity, <code class="docutils literal notranslate"><span class="pre">visibility:</span> <span class="pre">hidden</span></code> and <code class="docutils literal notranslate"><span class="pre">overflow:</span> <span class="pre">hidden</span></code>.</p>
+<p>Merely being scrolled off the page in either horizontally or vertically
+doesn’t count as invisible; the result of this function is meant to be
+independent of viewport size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#NoWindowError" title="NoWindowError"><strong>NoWindowError</strong></a> – The element (or perhaps one of its ancestors) is not in a window, so we can’t find the <cite>getComputedStyle()</cite> routine to call. That routine is the source of most of the information we use, so you should pick a different strategy for non-window contexts.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="isWhitespace">
+<code class="sig-name descname">isWhitespace</code><span class="sig-paren">(</span><em class="sig-param">element</em><span class="sig-paren">)</span><a class="headerlink" href="#isWhitespace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether an element is a text node that consist wholly of whitespace.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="length">
+<code class="sig-name descname">length</code><span class="sig-paren">(</span><em class="sig-param">iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of items in an iterable, consuming it as a side effect.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="linearScale">
+<code class="sig-name descname">linearScale</code><span class="sig-paren">(</span><em class="sig-param">number</em>, <em class="sig-param">zeroAt</em>, <em class="sig-param">oneAt</em><span class="sig-paren">)</span><a class="headerlink" href="#linearScale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale a number to the range [0, 1] using a linear slope.</p>
+<p>For a rising line, the result is 0 until the input reaches zeroAt, then
+increases linearly until oneAt, at which it becomes 1. To make a falling
+line, where the result is 1 to the left and 0 to the right, use a zeroAt
+greater than oneAt.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="linkDensity">
+<code class="sig-name descname">linkDensity</code><span class="sig-paren">(</span><em class="sig-param">inlineLength</em><span class="sig-paren">)</span><a class="headerlink" href="#linkDensity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ratio of the inline text length of the links in an element to the
+inline text length of the entire element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inlineLength</strong> (<em>number</em>) – Optionally, the precalculated inline length of the fnode. If omitted, we will calculate it ourselves.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="max">
+<code class="sig-name descname">max</code><span class="sig-paren">(</span><em class="sig-param">by</em><span class="sig-paren">)</span><a class="headerlink" href="#max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum item from an iterable, as defined by &gt;.</p>
+<p>Works with any type that works with &gt;. If multiple items are equally great,
+return the first.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>by</strong> (<em>function</em>) – Given an item of the iterable, returns a value to compare</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="maxes">
+<code class="sig-name descname">maxes</code><span class="sig-paren">(</span><em class="sig-param">iterable</em>, <em class="sig-param">by</em><span class="sig-paren">)</span><a class="headerlink" href="#maxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an Array of maximum items from an iterable, as defined by &gt; and ===.</p>
+<p>If an empty iterable is passed in, return [].</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="min">
+<code class="sig-name descname">min</code><span class="sig-paren">(</span><em class="sig-param">iterable</em>, <em class="sig-param">by</em><span class="sig-paren">)</span><a class="headerlink" href="#min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum item from an iterable, as defined by &lt;.</p>
+<p>If multiple items are equally great, return the first.</p>
+</dd></dl>
+
+<dl class="js class">
+<dt id="NiceSet">
+<em class="property">class </em><code class="sig-name descname">NiceSet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NiceSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Set with the additional methods it ought to have had</p>
+<dl class="js function">
+<dt id="NiceSet.extend">
+<code class="sig-prename descclassname">NiceSet.</code><code class="sig-name descname">extend</code><span class="sig-paren">(</span><em class="sig-param">otherSet</em><span class="sig-paren">)</span><a class="headerlink" href="#NiceSet.extend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Union another set or other iterable into myself.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>myself, for chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="NiceSet.minus">
+<code class="sig-prename descclassname">NiceSet.</code><code class="sig-name descname">minus</code><span class="sig-paren">(</span><em class="sig-param">otherSet</em><span class="sig-paren">)</span><a class="headerlink" href="#NiceSet.minus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subtract another set from a copy of me.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a copy of myself excluding the elements in <code class="docutils literal notranslate"><span class="pre">otherSet</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="NiceSet.pop">
+<code class="sig-prename descclassname">NiceSet.</code><code class="sig-name descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NiceSet.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return an arbitrary item. Throw an Error if I am empty.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="NiceSet.toString">
+<code class="sig-prename descclassname">NiceSet.</code><code class="sig-name descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#NiceSet.toString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Actually show the items in me.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="js function">
+<dt id="numberOfMatches">
+<code class="sig-name descname">numberOfMatches</code><span class="sig-paren">(</span><em class="sig-param">regex</em>, <em class="sig-param">haystack</em><span class="sig-paren">)</span><a class="headerlink" href="#numberOfMatches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of times a regex occurs within the string <cite>haystack</cite>.</p>
+<p>Caller must make sure <cite>regex</cite> has the ‘g’ option set.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="page">
+<code class="sig-name descname">page</code><span class="sig-paren">(</span><em class="sig-param">scoringFunction</em><span class="sig-paren">)</span><a class="headerlink" href="#page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrap a scoring callback, and set its element to the page root iff a score is
+returned.</p>
+<p>This is used to build rulesets which classify entire pages rather than
+picking out specific elements.</p>
+<p>For example, these rules might classify a page as a “login page”, influenced
+by whether they have login buttons or username fields:</p>
+<p><code class="docutils literal notranslate"><span class="pre">rule(type('loginPage'),</span> <span class="pre">score(page(pageContainsLoginButton))),</span></code>
+<code class="docutils literal notranslate"><span class="pre">rule(type('loginPage'),</span> <span class="pre">score(page(pageContainsUsernameField)))</span></code></p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="reversed">
+<code class="sig-name descname">reversed</code><span class="sig-paren">(</span><em class="sig-param">array</em><span class="sig-paren">)</span><a class="headerlink" href="#reversed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an backward iterator over an Array without reversing it in place.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="rgbaFromString">
+<code class="sig-name descname">rgbaFromString</code><span class="sig-paren">(</span><em class="sig-param">str</em><span class="sig-paren">)</span><a class="headerlink" href="#rgbaFromString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the extracted [r, g, b, a] values from a string like “rgba(0, 5, 255, 0.8)”,
+and scale them to 0..1. If no alpha is specified, return undefined for it.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="rootElement">
+<code class="sig-name descname">rootElement</code><span class="sig-paren">(</span><em class="sig-param">element</em><span class="sig-paren">)</span><a class="headerlink" href="#rootElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given any node in a DOM tree, return the root element of the tree, generally
+an HTML element.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="saturation">
+<code class="sig-name descname">saturation</code><span class="sig-paren">(</span><em class="sig-param">r</em>, <em class="sig-param">g</em>, <em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#saturation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the saturation 0..1 of a color defined by RGB values 0..1.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="setDefault">
+<code class="sig-name descname">setDefault</code><span class="sig-paren">(</span><em class="sig-param">map</em>, <em class="sig-param">key</em>, <em class="sig-param">defaultMaker</em><span class="sig-paren">)</span><a class="headerlink" href="#setDefault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a key of a map, first setting it to a default value if it’s missing.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="sigmoid">
+<code class="sig-name descname">sigmoid</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#sigmoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the sigmoid of the argument: 1 / (1 + exp(-x)). This is useful for
+crunching a feature value that may have a wide range into the range (0, 1)
+without a hard ceiling: the sigmoid of even a very large number will be a
+little larger than that of a slightly smaller one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>Number</em>) – a number to be compressed into the range (0, 1)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="sum">
+<code class="sig-name descname">sum</code><span class="sig-paren">(</span><em class="sig-param">iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the sum of an iterable, as defined by the + operator.</p>
+</dd></dl>
+
+<dl class="js function">
+<dt id="toDomElement">
+<code class="sig-name descname">toDomElement</code><span class="sig-paren">(</span><em class="sig-param">fnodeOrElement</em><span class="sig-paren">)</span><a class="headerlink" href="#toDomElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the DOM element contained in a passed-in fnode. Return passed-in DOM
+elements verbatim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fnodeOrElement</strong> (<em>Node|Fnode</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="toposort">
+<code class="sig-name descname">toposort</code><span class="sig-paren">(</span><em class="sig-param">nodes</em>, <em class="sig-param">nodesThatNeed</em><span class="sig-paren">)</span><a class="headerlink" href="#toposort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an Array, the reverse topological sort of the given nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> – An iterable of arbitrary things</p></li>
+<li><p><strong>nodesThatNeed</strong> (<em>function</em>) – Take a node and returns an Array of nodes that depend on it</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="walk">
+<code class="sig-name descname">walk</code><span class="sig-paren">(</span><em class="sig-param">shouldTraverse</em><span class="sig-paren">)</span><a class="headerlink" href="#walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate, depth first, over a DOM node. Return the original node first.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shouldTraverse</strong> (<em>function</em>) – Given a node, say whether we should include it and its children. Default: always true.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="commands/extract.html" class="btn btn-neutral float-right" title="fathom extract" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ruleset.html" class="btn btn-neutral float-left" title="Rules and Rulesets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

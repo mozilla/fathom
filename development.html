@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Development &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Clustering" href="clustering.html" />
+    <link rel="prev" title="Ruleset Zoo" href="zoo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">Collecting Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#source">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tests-and-examples">Tests and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docs">Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gotchas">Gotchas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows-considerations">Windows Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#future-roadmap">Future Roadmap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fathom-3-x-the-incremental-gains">Fathom 3.x: the incremental gains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fathom-4-the-great-beyond">Fathom 4: the great beyond</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commands/extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/test.html">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/development.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="source">
+<h2>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h2>
+<p>It’s on <a class="reference external" href="https://github.com/mozilla/fathom">GitHub</a>.</p>
+</div>
+<div class="section" id="tests-and-examples">
+<h2>Tests and Examples<a class="headerlink" href="#tests-and-examples" title="Permalink to this headline">¶</a></h2>
+<p>To run the tests, run…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">lint</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>This will also run the linter and analyze test coverage. To render the coverage report human-legibly, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">coverage</span></code>. You can then find the coverage report in the <code class="docutils literal notranslate"><span class="pre">coverage</span></code> directory.</p>
+<p>You can also run the linter or tests for just one subproject at a time. For example, to test the CLI tools…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">cli</span>
+<span class="n">make</span> <span class="n">lint</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>If you want to drop into the debugger in the middle of a JS test, add a <code class="docutils literal notranslate"><span class="pre">debugger;</span></code> statement at your desired breakpoint, then run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">debugtest</span></code> in the <code class="docutils literal notranslate"><span class="pre">fathom</span></code> subproject:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">fathom</span>
+<span class="n">make</span> <span class="n">debugtest</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="docs">
+<h2>Docs<a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h2>
+<p>To build the docs…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">docs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gotchas">
+<h2>Gotchas<a class="headerlink" href="#gotchas" title="Permalink to this headline">¶</a></h2>
+<p>If you are developing the CLI tools and your changes to their embedded copy of the Fathom JS framework don’t seem to be taking effect, commit first. The make target that builds <code class="docutils literal notranslate"><span class="pre">fathom.zip</span></code> uses <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">archive</span></code> to pull from <code class="docutils literal notranslate"><span class="pre">HEAD</span></code>. In this scenario, we tend to use a single local commit we amend with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">--amend</span> <span class="pre">--no-edit</span></code> when we want to test our changes.</p>
+</div>
+<div class="section" id="windows-considerations">
+<h2>Windows Considerations<a class="headerlink" href="#windows-considerations" title="Permalink to this headline">¶</a></h2>
+<p>Fathom uses <a class="reference external" href="https://www.gnu.org/software/make/manual/make.html">makefiles</a> to do its builds and run its tests. These makefiles rely on Unix commands. Therefore, if you are developing on Windows, you need access to these Unix commands through something like <a class="reference external" href="https://www.cygwin.com/">Cygwin</a>. You can build and test Fathom using <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux</a>, but just know that you are technically building and testing Fathom in Linux when you do.</p>
+</div>
+<div class="section" id="future-roadmap">
+<h2>Future Roadmap<a class="headerlink" href="#future-roadmap" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fathom-3-x-the-incremental-gains">
+<h3>Fathom 3.x: the incremental gains<a class="headerlink" href="#fathom-3-x-the-incremental-gains" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Regularization. Overfitting doesn’t generally happen much, if you keep your eyes on the Tensorboard graphs to dodge wrong LRs, but sometimes you can still add signal to the model and get worse accuracy as a result. That should never happen. Regularization might help with that.</p></li>
+<li><p>Automatic normalization. Right now, it’s the ruleset author’s responsibility to keep scoring callback outputs between 0 and 1. There are helpers to scale things linearly and sigmoidally, but it would be great to do this intelligently and automatically in the trainer, informed by the corpus rather than having the dev make guesses or painstaking calculations about the distribution.</p></li>
+<li><p>Shuffle every iteration. Might help avoid overfitting. We shuffle once now.</p></li>
+<li><p>Learn cutoff values. Sometimes there are values that, &lt;7, should be treated one way and &gt;7 another. We’ve had to model these by hand so far, but this should be automatic. We could using bucketing or deeper NNs, but we probably need much bigger corpora to support deeper NNs. The trainer already supports deeper NNs, but the client code needs support, and that’ll be a breaking change because the format of the coefficients and biases will have to expand. The math itself, of course, is trivial.</p></li>
+<li><p>Make corpus collection cheaper. Another theme for the future, related to the above, is making training data much cheaper to collect, because that would let us trade skilled labor of rule creation for unskilled corpus collection.</p></li>
+<li><p>Text signal. So far, we mostly pay attention to markup. Any body-text stuff has to be implemented by the ruleset author. There’s no reason we can’t integrate a Bayesian (or other) text model on body text or even tokenized CSS classes and IDs. Or URL segments. Or other attribute values. A Bayesian classifier could happily live as a scoring callback, though the trainer would have to be special-cased to go do a separate pass to collect bag-of-words numbers, then in the main pass hand that to the Bayesian scoring callbacks and let the NNs balance the outputs of them as usual. But at this point, I prefer putting effort toward Fathom 4 than this fairly expensive effort with much overlap.</p></li>
+<li><p>Visualization. It would be great to have a visualization tool that would show, on sample pages, what’s getting classified right and wrong. Just haven’t got around to it. Not hard.</p></li>
+</ul>
+</div>
+<div class="section" id="fathom-4-the-great-beyond">
+<h3>Fathom 4: the great beyond<a class="headerlink" href="#fathom-4-the-great-beyond" title="Permalink to this headline">¶</a></h3>
+<p>We had perf problems using Fathom for the FF Companion: running it on every page or several times per page. I’ve never done much optimization, though profiling shows that 80% of time is spent on DOM calls. DOM calls are both slow and block the main thread, and the DOM cannot be moved off the main thread to do recognition concurrently. So I took a few afternoons and said “What if we dispense with all the DOM calls, then?” Reader Mode just throws the markup across thread boundaries. Let’s see what we can get out of that. Sure, we lose heights and widths and visibilities and positions on the page, but there’s still lots of signal in that thar text, and Fathom 1 started out there, as a node app running against a stub DOM implementation without access to a renderer. To make a long story short, I build a whole-page categorizer using logistic regression on TFIDF’d bags of words, with all markup stripped out, and…</p>
+<ul class="simple">
+<li><p>It gives 85% testing accuracy, very comparable with Smooth Shopping’s 90% <em>validation</em> accuracy.</p></li>
+<li><p>It took a month or more to write the Shopping ruleset. This one I didn’t have to write at all; it was trained in 5 seconds.</p></li>
+<li><p>I didn’t engineer a single feature for this. Not so much as a price regex. It’s a general classifier. It did similarly well against our hand-rolled Smoot Article recognizer, which is especially interesting since Articles have wider subject matter than shopping pages.</p></li>
+<li><dl class="simple">
+<dt>There’s tons of signal still left on the floor:</dt><dd><ul>
+<li><p>Stemming. Tried it but didn’t have an obvious impact. Odd. Try again.</p></li>
+<li><p>All the markup. I stripped out everything but body text. Teach it to use tag names, CSS classes, IDs, and URL segments.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>What’s a more open question is whether this can be adapted from whole-page categorization to element recognition, like Fathoms 1-3, which is the more major case.</p>
+<ul class="simple">
+<li><p>Continue with this bag-of-words approach on a pruned down set of candidate tags, statistically informed? Either algorithmically come up with a minimal querySelector arg, or use a compressed model to predict which tags we ought to examine, like an attention system in computer vision.</p></li>
+<li><p>Perhaps add some hand-rolled but still generic signals, like innertext length, markup bits, or consideration of surrounding elements (parents, grandparents, siblings, etc.).</p></li>
+</ul>
+<p>If this could work, it would be a game-changer. Just as Fathoms 1-3 let us do something we couldn’t do before at all, Fathom 4 would let you do it in a couple afternoons of low-skilled work rather than a couple weeks to months of skilled.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="clustering.html" class="btn btn-neutral float-right" title="Clustering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="zoo.html" class="btn btn-neutral float-left" title="Ruleset Zoo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

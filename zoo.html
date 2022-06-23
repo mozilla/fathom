@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ruleset Zoo &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development" href="development.html" />
+    <link rel="prev" title="Maintaining" href="maintaining.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">Collecting Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintaining.html">Maintaining</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ruleset Zoo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#new-password-forms">New-Password Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login-forms">Login Forms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#recognizers">Recognizers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#smoot-page-classification">Smoot: Page Classification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Recognizers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#price-tracker">Price Tracker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Recognizers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pop-up-detector">Pop-up Detector</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commands/extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/test.html">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Ruleset Zoo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/zoo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ruleset-zoo">
+<h1>Ruleset Zoo<a class="headerlink" href="#ruleset-zoo" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the Fathom Ruleset Zoo, a bestiary of Fathom real-world examples. Each gives an overview and links to a repository with full source code.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some repos are private because they contain copyrighted training samples. While we believe this is fair use, we don’t wish to provoke cease-and-desist bots. If you work for Mozilla, just ask, and we’ll grant you access. Otherwise, we’ve pasted the ruleset source code into the docs, so you can at least see that. Enjoy!</p>
+</div>
+<div class="section" id="new-password-forms">
+<h2>New-Password Forms<a class="headerlink" href="#new-password-forms" title="Permalink to this headline">¶</a></h2>
+<p>Firefox’s password manager needed a way to identify new-password fields so it could suggest (and memorize) high-entropy passwords for them. There is standardized markup for this, but only 2-4% of sites use it. Fathom thus stepped in to backstop the other 97%. On a corpus of 508 pages, we trained to a testing precision of 99.2% and recall of 92.1%. (We used <code class="docutils literal notranslate"><span class="pre">fathom</span> <span class="pre">train</span> <span class="pre">--pos-weight</span></code> to slant the results in favor of fewer false positives, sacrificing some recall for it.) Independent QA work showed an accuracy and false-negative rate better than that of Google Chrome—and a false-positive rate only 1% worse—and all of that with a purely client-side model. It shipped in Firefox 76.</p>
+<p><a class="reference internal" href="zoo/new_password.html"><span class="doc">Ruleset source</span></a></p>
+<p><a class="reference external" href="https://github.com/mozilla-services/fathom-login-forms/blob/master/new-password/rulesets.js">Full repo</a></p>
+</div>
+<div class="section" id="login-forms">
+<h2>Login Forms<a class="headerlink" href="#login-forms" title="Permalink to this headline">¶</a></h2>
+<p>As a proof-of-concept next-generation autofiller for <a class="reference external" href="https://www.mozilla.org/en-US/firefox/lockwise/">Firefox Lockwise</a>, we built recognizers for login forms’ username fields and Log In buttons.</p>
+<p>This is a clean, simple example of a Fathom 3 ruleset. It was designed for Fathom 3 from the beginning, solves the problem concisely, and has respectable accuracy.</p>
+<div class="section" id="recognizers">
+<h3>Recognizers<a class="headerlink" href="#recognizers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Username field.</strong> This is the username or (as is increasingly the case) email field of the login form. The ruleset finds the precise <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> element for form fill. Validation precision and recall: both 96.6%, on 162 candidate tags across 64 pages, including ones with no login forms or with adversarial constructs like password-change, credit-card, and shipping forms.</p></li>
+<li><p><strong>Next button.</strong> The Log In button or, for multi-page login flows, whatever you click to advance to the next step. This was the more challenging recognizer, since there is a wider diversity of both markup and text for these constructs. Validation precision: 100%. Validation recall: 72.9%. This is across 490 candidate tags on 64 pages. There is plenty of signal left on the table, so more invested time should give us another percentage point or two. (The whole project was timeboxed to about 3 weeks.)</p></li>
+</ul>
+<p><a class="reference internal" href="zoo/login.html"><span class="doc">Ruleset source</span></a></p>
+<p><a class="reference external" href="https://github.com/mozilla-services/fathom-login-forms/blob/master/lockwise-proof-of-concept/trainees.js">Full repo</a></p>
+</div>
+</div>
+<div class="section" id="smoot-page-classification">
+<h2>Smoot: Page Classification<a class="headerlink" href="#smoot-page-classification" title="Permalink to this headline">¶</a></h2>
+<p>An upcoming Firefox metrics effort, Project Smoot will use a set of whole-page classifiers to characterize user tasks in a privacy-preserving way.</p>
+<div class="section" id="id2">
+<h3>Recognizers<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><strong>Shopping.</strong> A page is a shopping page iff a user would seek it out in the process of choosing or buying things. This is a very challenging rubric, as it almost demands the model reach inside the head of the user to determine intent. A page about Amazon’s affiliate program is not a shopping page, even though it appears on a shopping-focused domain. A forum thread on Reddit discussing the merits of competing products is a shopping page, even though it’s not near any actual Buy buttons.</p>
+<p>Despite the difficulty of the task, our model, still under development, scores over 90% in validation on a corpus of 100 pages.</p>
+</li>
+<li><p><strong>Article.</strong> A page whose main attraction is prose to read. Though still under development, this model scores 90% in validation on a corpus of 60 pages.</p></li>
+<li><p><strong>“Techie” Article.</strong> An article aimed at a computer-savvy audience. This is intended for audience segmentation. It’s too early for numbers here as well.</p></li>
+</ul>
+<p><a class="reference internal" href="zoo/smoot_articles.html"><span class="doc">Articles ruleset source</span></a></p>
+<p><a class="reference internal" href="zoo/smoot_shopping.html"><span class="doc">Shopping ruleset source</span></a></p>
+<p><a class="reference external" href="https://github.com/mozilla-services/fathom-smoot">Full repo</a></p>
+</div>
+</div>
+<div class="section" id="price-tracker">
+<h2>Price Tracker<a class="headerlink" href="#price-tracker" title="Permalink to this headline">¶</a></h2>
+<p>Originally designed for Fathom 2.0 but ported to 3.0 as a team familiarization exercise, Firefox Price Tracker is a now-retired web extension that periodically polled the prices of a wishlist of products and notified the user of price drops. Fathom provided the recognition of products for sale: their names, images, and prices. Out of an abundance of caution, Price Tracker underutilized Fathom’s ability to generalize, artificially limiting itself to the 5 top commerce sites in the U.S. However, its compact example is easy to digest in a sitting, and it’s a fine instance of Fathom increasing the agency of thousands of users when wrapped in a quality, lightweight UI.</p>
+<img alt="_images/price_tracker_screenshot.png" src="_images/price_tracker_screenshot.png" />
+<div class="section" id="id4">
+<h3>Recognizers<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Image.</strong> The “hero” image showing the product. Validation accuracy: 99.34%. Testing accuracy: 75%.</p></li>
+<li><p><strong>Title.</strong> The name of the product. Validation accuracy: 100%. Testing accuracy: 83.38%.</p></li>
+<li><p><strong>Price.</strong> The price charged for the product. Validation accuracy: 99.27%. Testing accuracy: 99.46%.</p></li>
+</ul>
+<p>Price Tracker’s accuracy numbers are unusually noisy, partly due to the rules being written with an earlier version of Fathom in mind and partly due to its small, homogeneous sample corpus. Pages came from only 5 sites, and testing and validation corpora were each only 20 pages. The 95% confidence interval for accuracy numbers thus spans as much as 30%. If we were to ship a Fathom-3.0-powered Price Tracker, we would refine until we had only a few percentage points of spread.</p>
+<p>More metrics are available on <a class="reference external" href="https://github.com/mozilla/price-tracker/pull/317">the pull request that merged the Fathom 3 upgrade</a>, but they mostly serve as a warning that a more diverse corpus is necessary for confident measurement. Take Price Tracker as an example of coding practices and product-market fit, not corpus design.</p>
+<p><a class="reference internal" href="zoo/price_tracker.html"><span class="doc">Ruleset source</span></a></p>
+<p><a class="reference external" href="https://github.com/mozilla/price-tracker/blob/master/src/extraction/fathom/ruleset_factory.js">Full repo</a></p>
+</div>
+</div>
+<div class="section" id="pop-up-detector">
+<h2>Pop-up Detector<a class="headerlink" href="#pop-up-detector" title="Permalink to this headline">¶</a></h2>
+<p>Pop-up “windows” on the web have migrated from actual windows to in-page elements, largely due to browsers’ success at blocking the old kind. We mentored a student project to recognize in-page pop-ups using the older Fathom 2.</p>
+<p>Results were encouraging, hovering around 85% on a blind testing corpus. Revamped for a modern Fathom, it might give higher numbers with little effort. In the meantime, it serves as a good example of perceptive rules. But don’t lean overmuch on the ranges of numbers returned from scoring callbacks; that all changed in Fathom 3.</p>
+<p><a class="reference external" href="https://github.com/capstone-2018873/fathom-trainees/tree/master/src/models">Pop-up Detector source</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="development.html" class="btn btn-neutral float-right" title="Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="maintaining.html" class="btn btn-neutral float-left" title="Maintaining" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Collecting Samples" href="samples.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commandline-tools">Commandline Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fathomfox">FathomFox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fathom">Fathom</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">Collecting Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commands/extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/test.html">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/installing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing">
+<h1>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h1>
+<p>Fathom consists of 3 parts. Here’s how to install each one.</p>
+<div class="section" id="commandline-tools">
+<span id="fathomfox-installation"></span><h2>Commandline Tools<a class="headerlink" href="#commandline-tools" title="Permalink to this headline">¶</a></h2>
+<p>Fathom’s commandline tools take your labeled pages as input and train the machine-learning model. They also contain an embedded copy of FathomFox (see below), the simplest way to collect pages. If you don’t already have Python 3.7 or better, download it from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>. Then, install the tools by running…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">fathom</span><span class="o">-</span><span class="n">web</span>
+</pre></div>
+</div>
+<p>It’s possible your Python package manager is called simply “pip” rather than “pip3”. Give that a try if the above fails.</p>
+<p>You will also need to install <a class="reference external" href="https://nodejs.org/en/">Node.js</a> to use many of the commandline tools.</p>
+</div>
+<div class="section" id="fathomfox">
+<h2>FathomFox<a class="headerlink" href="#fathomfox" title="Permalink to this headline">¶</a></h2>
+<p>FathomFox is a browser extension used to label web pages. The best way to get it is to first install the commandline tools and then run…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fathom</span> <span class="n">fox</span>
+</pre></div>
+</div>
+<p>This will launch a built-in copy of FathomFox in a fresh Firefox profile so ad blockers and other customizations don’t interfere with the clean capture of labeled pages. (Some ad blockers will make changes to the DOM, like adding style attributes to ad iframes to hide them.) Using the commandline launcher also lets you pass in your own rulesets for debugging with the FathomFox Evaluator. See the <code class="docutils literal notranslate"><span class="pre">-r</span></code> option on the <a class="reference internal" href="commands/fox.html"><span class="doc">fathom fox reference page</span></a>.</p>
+<p>For more casual use, you can instead <a class="reference external" href="https://addons.mozilla.org/en-US/firefox/addon/fathomfox/">install FathomFox through the web</a>, in which case it will be your responsibility to avoid addons that might mutate the DOM.</p>
+</div>
+<div class="section" id="fathom">
+<h2>Fathom<a class="headerlink" href="#fathom" title="Permalink to this headline">¶</a></h2>
+<p>Fathom proper is a JS library which runs trained rulesets to do the actual recognition. You don’t need to worry about installing it until your rulesets are performing satisfactorily and you’re ready to integrate them with your application.</p>
+<p>If your application runs server-side under <a class="reference external" href="https://nodejs.org/en/">Node.js</a>, you can install <a class="reference external" href="https://www.npmjs.com/package/fathom-web">the Fathom node package</a> like any other dependency:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npm</span> <span class="n">install</span> <span class="n">fathom</span><span class="o">-</span><span class="n">web</span>
+</pre></div>
+</div>
+<p>If, instead, you’re working on a Firefox feature, you can use the copy of Fathom already in Firefox by saying something like this at the top of the file containing your ruleset:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ChromeUtils</span><span class="o">.</span><span class="n">defineModuleGetter</span><span class="p">(</span>
+  <span class="n">this</span><span class="p">,</span>
+  <span class="s2">&quot;fathom&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;resource://gre/modules/third_party/fathom/fathom.jsm&quot;</span>
+<span class="p">);</span>
+
+<span class="n">const</span> <span class="p">{</span>
+  <span class="n">dom</span><span class="p">,</span>
+  <span class="n">element</span><span class="p">,</span>
+  <span class="n">out</span><span class="p">,</span>
+  <span class="n">rule</span><span class="p">,</span>
+  <span class="n">ruleset</span><span class="p">,</span>
+  <span class="n">score</span><span class="p">,</span>
+  <span class="nb">type</span><span class="p">,</span>
+  <span class="n">utils</span><span class="p">:</span> <span class="p">{</span> <span class="n">identity</span><span class="p">,</span> <span class="n">isVisible</span><span class="p">,</span> <span class="nb">min</span> <span class="p">},</span>
+  <span class="n">clusters</span><span class="p">:</span> <span class="p">{</span> <span class="n">euclidean</span> <span class="p">},</span>
+<span class="p">}</span> <span class="o">=</span> <span class="n">fathom</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Finally, if you need a self-contained bundle of Fathom in a context that can’t use node packages, check out our <a class="reference external" href="https://github.com/mozilla/fathom">source</a> and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-C</span> <span class="pre">fathom</span> <span class="pre">bundle</span></code>. This creates the bundle at <code class="docutils literal notranslate"><span class="pre">fathom/dist/fathom.js</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="samples.html" class="btn btn-neutral float-right" title="Collecting Samples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

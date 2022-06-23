@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Clustering &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions" href="exceptions.html" />
+    <link rel="prev" title="Development" href="development.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">Collecting Samples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commands/extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/test.html">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Clustering</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/clustering.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="clustering">
+<h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
+<p>Fathom provides a flexible clustering algorithm, useful for finding nodes that are bunched together spatially or according to some other metric. By default, it groups nodes based on their proximity and ancestry. It is documented here as top-level functions but is also available directly within rulesets as <a class="reference internal" href="ruleset.html#bestCluster" title="bestCluster"><code class="xref js js-func docutils literal notranslate"><span class="pre">bestCluster()</span></code></a>, which has the advantage of letting you direct its results to further rules.</p>
+<p>The clustering routines hang off a <code class="docutils literal notranslate"><span class="pre">clusters</span></code> object in the top-level Fathom module. To import them, do something like this:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span>
+  <span class="nx">clusters</span><span class="o">:</span> <span class="p">{</span> <span class="nx">distance</span> <span class="p">},</span>
+<span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fathom-web&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This will result in a top-level <code class="docutils literal notranslate"><span class="pre">distance</span></code> symbol.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Clustering is computationally expensive (at least O(n^2)). It is powerful, but it should be used only when more efficient alternatives are exhausted.</p>
+</div>
+<dl class="js function">
+<dt id="clusters">
+<code class="sig-name descname">clusters</code><span class="sig-paren">(</span><em class="sig-param">fnodes</em>, <em class="sig-param">splittingDistance</em>, <em class="sig-param">getDistance</em><span class="sig-paren">)</span><a class="headerlink" href="#clusters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition the given nodes into one or more clusters by position in the DOM
+tree.</p>
+<p>This implements an agglomerative clustering. It uses single linkage, since
+we’re talking about adjacency here more than Euclidean proximity: the
+clusters we’re talking about in the DOM will tend to be adjacent, not
+overlapping. We haven’t tried other linkage criteria yet.</p>
+<p>In a later release, we may consider score or notes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fnodes</strong> (<em>Array.&lt;Fnode&gt;|Array.&lt;Node&gt;</em>) – <a class="reference internal" href="glossary.html#term-fnode"><span class="xref std std-term">fnodes</span></a> or DOM nodes to group into clusters</p></li>
+<li><p><strong>splittingDistance</strong> (<em>number</em>) – The closest-nodes <a class="reference internal" href="#distance" title="distance"><code class="xref js js-func docutils literal notranslate"><span class="pre">distance()</span></code></a> beyond which we will not attempt to unify 2 clusters. Make this larger to make larger clusters.</p></li>
+<li><p><strong>getDistance</strong> (<em>function</em>) – A function that returns some notion of numerical distance between 2 nodes. Default: <a class="reference internal" href="#distance" title="distance"><code class="xref js js-func docutils literal notranslate"><span class="pre">distance()</span></code></a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Array</strong> – An Array of Arrays, with each Array containing all the nodes in one cluster. Note that neither the clusters nor the nodes are in any particular order. You may find <a class="reference internal" href="utilities.html#domSort" title="domSort"><code class="xref js js-func docutils literal notranslate"><span class="pre">domSort()</span></code></a> helpful to remedy the latter.</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span><span class="nx">clusters</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fathom-web/clusters&#39;</span><span class="p">);</span>
+<span class="nx">theClusters</span> <span class="o">=</span> <span class="nx">clusters</span><span class="p">(</span><span class="nx">anArrayOfNodes</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In the above, 4 is the distance beyond which Fathom will decide nodes belong in separate clusters. Turn it up to more aggressively invite nearby nodes into a cluster. Turn it down to keep clusters smaller. The output looks like a list of lists, with each list representing a cluster:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="nx">nodeA</span><span class="p">,</span> <span class="nx">nodeB</span><span class="p">,</span> <span class="nx">nodeC</span><span class="p">],</span>
+ <span class="p">[</span><span class="nx">nodeD</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Various factors influence the measured distance between nodes. The first is the obvious one: topological distance, the number of steps along the DOM tree from one node to another.</p>
+<p>The second is structural similarity. In the following, the divs <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are farther apart…</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;a&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>…than they would be if the <code class="docutils literal notranslate"><span class="pre">center</span></code> tag were a <code class="docutils literal notranslate"><span class="pre">div</span></code> as well:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;a&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;b&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Third is depth disparity. Nodes are considered farther from each other if they are not the same distance from the root.</p>
+<p>Finally is the presence of “stride” nodes, which are siblings or siblings-of-ancestors that lie
+between 2 nodes. (These are the nodes that would appear between the 2 nodes in a straightforward rendering of the page.) Each stride node makes it less likely that the 2 nodes will be together in a cluster.</p>
+<p>The costs for each factor can be customized by wrapping <a class="reference internal" href="#distance" title="distance"><code class="xref js js-func docutils literal notranslate"><span class="pre">distance()</span></code></a> in an arrow function and passing it as the third param.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">clusters()</span></code> can actually cluster anything, not just DOM nodes. All you need to do is pass in a suitable distance function as the <code class="docutils literal notranslate"><span class="pre">getDistance</span></code> param.</p>
+</div>
+</dd></dl>
+
+<dl class="js function">
+<dt id="distance">
+<code class="sig-name descname">distance</code><span class="sig-paren">(</span><em class="sig-param">fnodeA</em>, <em class="sig-param">fnodeB</em>, <em class="sig-param">{differentDepthCost = 2</em>, <em class="sig-param">differentTagCost = 2</em>, <em class="sig-param">sameTagCost = 1</em>, <em class="sig-param">strideCost = 1</em>, <em class="sig-param">additionalCost = (fnodeA</em>, <em class="sig-param">fnodeB) =&gt; 0}</em><span class="sig-paren">)</span><a class="headerlink" href="#distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a topological distance between 2 DOM nodes or <a class="reference internal" href="glossary.html#term-fnode"><span class="xref std std-term">fnodes</span></a>
+weighted according to the similarity of their ancestry in the DOM. For
+instance, if one node is situated inside <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;&lt;span&gt;&lt;b&gt;&lt;theNode&gt;</span></code> and the
+other node is at <code class="docutils literal notranslate"><span class="pre">&lt;differentDiv&gt;&lt;span&gt;&lt;b&gt;&lt;otherNode&gt;</span></code>, they are considered
+close to each other for clustering purposes. This is useful for picking out
+nodes which have similar purposes.</p>
+<p>Return <code class="docutils literal notranslate"><span class="pre">Number.MAX_VALUE</span></code> if one of the nodes contains the other.</p>
+<p>This is largely an implementation detail of <a class="reference internal" href="#clusters" title="clusters"><code class="xref js js-func docutils literal notranslate"><span class="pre">clusters()</span></code></a>, but you can
+call it yourself if you wish to implement your own clustering. Takes O(n log
+n) time.</p>
+<p>Note that the default costs may change; pass them in explicitly if they are
+important to you.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Arguments</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fnodeA</strong> (<em>Node|Fnode</em>) – </p></li>
+<li><p><strong>fnodeB</strong> (<em>Node|Fnode</em>) – </p></li>
+<li><p><strong>differentDepthCost</strong> (<em>number</em>) – Cost for each level deeper one node is than the other below their common ancestor</p></li>
+<li><p><strong>differentTagCost</strong> (<em>number</em>) – Cost for a level below the common ancestor where tagNames differ</p></li>
+<li><p><strong>sameTagCost</strong> (<em>number</em>) – Cost for a level below the common ancestor where tagNames are the same</p></li>
+<li><p><strong>strideCost</strong> (<em>number</em>) – Cost for each stride node between A and B. Stride nodes are siblings or siblings-of-ancestors that lie between the 2 nodes. These interposed nodes make it less likely that the 2 nodes should be together in a cluster.</p></li>
+<li><p><strong>additionalCost</strong> (<em>function</em>) – Return an additional cost, given 2 fnodes or nodes.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="js function">
+<dt id="euclidean">
+<code class="sig-name descname">euclidean</code><span class="sig-paren">(</span><em class="sig-param">fnodeA</em>, <em class="sig-param">fnodeB</em><span class="sig-paren">)</span><a class="headerlink" href="#euclidean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the spatial distance between 2 fnodes or elements, assuming a
+rendered page.</p>
+<p>Specifically, return the distance in pixels between the centers of
+<code class="docutils literal notranslate"><span class="pre">fnodeA.element.getBoundingClientRect()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">fnodeB.element.getBoundingClientRect()</span></code>.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="development.html" class="btn btn-neutral float-left" title="Development" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

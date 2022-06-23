@@ -1,0 +1,20 @@
+@import url(css/theme.css);
+
+/* Don't make all the code literals distractingly red and bold. Bold now indicates a link. */
+
+code, .rst-content tt, .rst-content code, .rst-content tt.literal, .rst-content tt.literal, .rst-content code.literal {
+    color: #000;
+    font-weight: normal;
+}
+
+.rst-content dl:not(.docutils) tt, .rst-content dl:not(.docutils) tt, .rst-content dl:not(.docutils) code {
+    font-weight: normal;
+}
+
+a code, .rst-content a tt, .rst-content a code, .rst-content a tt.literal, .rst-content a tt.literal, .rst-content a code.literal {
+    font-weight: bold;
+}
+
+.rst-content .section ol li, .rst-content .section ul li, .rst-content ol.arabic li, .rst-content ul li, article ul li, article ol li {
+    font-size: 16px;
+}

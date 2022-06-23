@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Writing Rules &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Training" href="training.html" />
+    <link rel="prev" title="Collecting Samples" href="samples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samples.html">Collecting Samples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Writing Rules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-language">The Language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dataflow">Dataflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#starting-your-ruleset">Starting Your Ruleset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#designing-rules">Designing Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sources-of-signal">Sources of Signal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rules-of-thumb">Rules of Thumb</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-ready-to-train">Getting Ready to Train</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commands/extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/test.html">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Writing Rules</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/rules.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="writing-rules">
+<h1>Writing Rules<a class="headerlink" href="#writing-rules" title="Permalink to this headline">¶</a></h1>
+<p>Once you’ve collected some training samples, you can begin to write rules.</p>
+<div class="section" id="the-language">
+<h2>The Language<a class="headerlink" href="#the-language" title="Permalink to this headline">¶</a></h2>
+<p>Think of Fathom as a tiny programming language that recognizes the significant parts of DOM trees by means of its programs, Fathom rulesets. A ruleset is an unordered bag of rules, each of which takes in a DOM node and annotates it with a score, type, or note to influence future rules. At the end of the chain of rules, out pop one or more pieces of output—typically high-scoring nodes of certain types—to inform the surrounding imperative program. You’ll also see the term <a class="reference internal" href="glossary.html#term-fnode"><span class="xref std std-term">fnode</span></a> used. Standing for “Fathom node”, it is a wrapper around a DOM node that is used for Fathom bookkeeping.</p>
+<p>This is an excerpt from a ruleset that finds whole-page translucent overlays behind pop-ups. It combines a variety of signals to score DOM nodes according to how likely they are to be overlays:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span><span class="nx">ruleset</span><span class="p">,</span> <span class="nx">rule</span><span class="p">,</span> <span class="nx">dom</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">score</span><span class="p">,</span> <span class="nx">out</span><span class="p">,</span> <span class="nx">utils</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;fathom-web&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="p">{</span><span class="nx">isVisible</span><span class="p">,</span> <span class="nx">linearScale</span><span class="p">}</span> <span class="o">=</span> <span class="nx">utils</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">rules</span> <span class="o">=</span> <span class="nx">ruleset</span><span class="p">([</span>
+    <span class="c1">// Consider all &lt;div&gt; tags as candidate overlays:</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">dom</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">),</span> <span class="nx">type</span><span class="p">(</span><span class="s1">&#39;overlay&#39;</span><span class="p">)),</span>
+
+    <span class="c1">// Contribute the &quot;bigness&quot; of the node to its overlay score:</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s1">&#39;overlay&#39;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">big</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;big&#39;</span><span class="p">}),</span>
+
+    <span class="c1">// Contibute the opacity of the node to its overlay score:</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s1">&#39;overlay&#39;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">nearlyOpaque</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;nearlyOpaque&#39;</span><span class="p">}),</span>
+
+    <span class="c1">// Contribute some other signals as well:</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s1">&#39;overlay&#39;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">monochrome</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;monochrome&#39;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s1">&#39;overlay&#39;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">suspiciousClassOrId</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;classOrId&#39;</span><span class="p">}),</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s1">&#39;overlay&#39;</span><span class="p">),</span> <span class="nx">score</span><span class="p">(</span><span class="nx">isVisible</span><span class="p">),</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;visible&#39;</span><span class="p">}),</span>
+
+    <span class="c1">// Offer the max-scoring overlay-typed node under the output key</span>
+    <span class="c1">// &quot;overlay&quot;. The score on that node will represent the probability,</span>
+    <span class="c1">// informed by a corpus of training samples, that the node is, indeed,</span>
+    <span class="c1">// a pop-up overlay.</span>
+    <span class="nx">rule</span><span class="p">(</span><span class="nx">type</span><span class="p">(</span><span class="s1">&#39;overlay&#39;</span><span class="p">).</span><span class="nx">max</span><span class="p">(),</span> <span class="nx">out</span><span class="p">(</span><span class="s1">&#39;overlay&#39;</span><span class="p">))</span>
+<span class="p">]);</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Return whether the passed-in div is the size of the whole</span>
+<span class="cm"> * viewport/document or nearly so.</span>
+<span class="cm"> */</span>
+<span class="kd">function</span> <span class="nx">big</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Compare the size of the fnode to the size of the viewport. Spot-</span>
+    <span class="c1">// checking the training set shows the overlay is never the size of the</span>
+    <span class="c1">// whole document, just the viewport.</span>
+    <span class="kr">const</span> <span class="nx">rect</span> <span class="o">=</span> <span class="nx">fnode</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">hDifference</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">rect</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">wDifference</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">rect</span><span class="p">.</span><span class="nx">width</span> <span class="o">-</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerWidth</span><span class="p">);</span>
+
+    <span class="c1">// Compress the result into the 0..1 range. 250px is getting into &quot;too</span>
+    <span class="c1">// tall to just be nav or something&quot; territory.</span>
+    <span class="k">return</span> <span class="nx">linearScale</span><span class="p">(</span><span class="nx">hDifference</span> <span class="o">+</span> <span class="nx">wDifference</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">nearlyOpaque</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{...}</span>
+<span class="kd">function</span> <span class="nx">monochrome</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{...}</span>
+<span class="kd">function</span> <span class="nx">suspiciousClassOrId</span><span class="p">(</span><span class="nx">fnode</span><span class="p">)</span> <span class="p">{...}</span>
+</pre></div>
+</div>
+<p>Your rulesets go in a file called <code class="docutils literal notranslate"><span class="pre">rulesets.js</span></code> next to your <code class="docutils literal notranslate"><span class="pre">samples</span></code> folder. The unabridged <a class="reference internal" href="example.html"><span class="doc">Example Ruleset</span></a> is in the appendix, and you should pattern yours after it.</p>
+<div class="section" id="dataflow">
+<h3>Dataflow<a class="headerlink" href="#dataflow" title="Permalink to this headline">¶</a></h3>
+<p>Fathom is a <a class="reference external" href="https://en.wikipedia.org/wiki/Dataflow_programming">dataflow language</a>. Each rule is shaped like <code class="docutils literal notranslate"><span class="pre">rule(left-hand</span> <span class="pre">side,</span> <span class="pre">right-hand</span> <span class="pre">side)</span></code>. The <em>left-hand side</em> (LHS) pulls in one or more DOM nodes as input: either ones that match a certain CSS selector (<a class="reference internal" href="ruleset.html#dom" title="dom"><code class="xref js js-func docutils literal notranslate"><span class="pre">dom()</span></code></a>) or ones tagged with a certain type by other rules (<a class="reference internal" href="ruleset.html#type" title="type"><code class="xref js js-func docutils literal notranslate"><span class="pre">type()</span></code></a>). The <em>right-hand side</em> (RHS) then decides what to do with those nodes:</p>
+<ul class="simple">
+<li><p>Adding a <a class="reference internal" href="ruleset.html#score" title="score"><code class="xref js js-func docutils literal notranslate"><span class="pre">score()</span></code></a>. This is the most common action; it drives Fathom’s recognition of entities.</p></li>
+<li><p>Assigning an additional <a class="reference internal" href="ruleset.html#type" title="type"><code class="xref js js-func docutils literal notranslate"><span class="pre">type()</span></code></a></p></li>
+<li><p>Scribbling a <a class="reference internal" href="ruleset.html#note" title="note"><code class="xref js js-func docutils literal notranslate"><span class="pre">note()</span></code></a> on it. Notes let you avoid repeated computation and attach additional information to output nodes.</p></li>
+<li><p>Or some combination thereof</p></li>
+</ul>
+<p>Envision the rule as a pipeline, with the DOM flowing in one end, nodes being picked and passed along to RHSs which twiddle them, and then finally falling out right side, where they might flow into other rules whose LHSs pick them up. It’s a slithering sort of flow.</p>
+<p>This rule, which takes in <a class="reference internal" href="glossary.html#term-fnode"><span class="xref std std-term">fnodes</span></a> that have previously been identified as text containers and adds a word-count annotation…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;textContainer&#39;</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;countedWords&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">note</span><span class="p">(</span><span class="n">fnode</span> <span class="o">=&gt;</span> <span class="n">fnode</span><span class="o">.</span><span class="n">element</span><span class="o">.</span><span class="n">textContent</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="o">/</span>\<span class="n">s</span><span class="o">+/</span><span class="p">)</span><span class="o">.</span><span class="n">length</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>…can be thought of as…</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>textContainer fnodes emitted       assign &quot;countedWords&quot; type and
+     from other rules         -&gt;   a note containing word count    -&gt;  changed nodes ─╮
+                                                                                      │
+╭─────────────────────────────────────────────────────────────────────────────────────╯
+│
+│
+╰─&gt;  other rules&#39; LHSs        -&gt;   ...                             -&gt;   ...
+</pre></div>
+</div>
+<p>Remember that Fathom’s rulesets are unordered, so any rule’s output can flow into any other rule, not just ones that happen to come lexically after it.</p>
+</div>
+</div>
+<div class="section" id="starting-your-ruleset">
+<h2>Starting Your Ruleset<a class="headerlink" href="#starting-your-ruleset" title="Permalink to this headline">¶</a></h2>
+<p>Begin your own ruleset by copying and pasting the <a class="reference internal" href="example.html"><span class="doc">Example Ruleset</span></a>. It illustrates the API you need to follow to hook into the trainer, namely the <code class="docutils literal notranslate"><span class="pre">trainees</span></code> object and its fields. As you are writing your ruleset, refer to the <a class="reference internal" href="ruleset.html"><span class="doc">Rules and Rulesets</span></a> API documentation as well for the full list of routines you can use. You can also visit the <a class="reference internal" href="zoo.html"><span class="doc">Ruleset Zoo</span></a> for inspiration.</p>
+</div>
+<div class="section" id="designing-rules">
+<h2>Designing Rules<a class="headerlink" href="#designing-rules" title="Permalink to this headline">¶</a></h2>
+<p>Each rule should generally express one machine-learning feature—or “smell”, to coin a metaphor. The score it applies—the return value of the callback passed to <a class="reference internal" href="ruleset.html#score" title="score"><code class="xref js js-func docutils literal notranslate"><span class="pre">score()</span></code></a>—should be a number between 0 and 1, inclusive, representing the probability that that smell is present. These smells are later balanced by the trainer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For many smells, it’s natural to return hard 0s or 1s (or trues and falses, if that’s more convenient). If you have fuzzier values to return—as from a rule that expresses something subjectively defined like “image is big”—<a class="reference internal" href="utilities.html#linearScale" title="linearScale"><code class="xref js js-func docutils literal notranslate"><span class="pre">linearScale()</span></code></a> and <a class="reference internal" href="utilities.html#sigmoid" title="sigmoid"><code class="xref js js-func docutils literal notranslate"><span class="pre">sigmoid()</span></code></a> will help you clamp down extreme values. Make the choice based on whether two adjacent extreme values should still have distinguishable outputs. If they should, go with sigmoid().</p>
+</div>
+<div class="section" id="sources-of-signal">
+<h3>Sources of Signal<a class="headerlink" href="#sources-of-signal" title="Permalink to this headline">¶</a></h3>
+<p>What sorts of rules should you write? In short, ones that express simple, atomic smells that tend to be found in—or lacked by—target elements. For example, if you are trying to recognize the images of products for sale on shopping sites, the target image might have smells like…</p>
+<ul class="simple">
+<li><p>Large size</p></li>
+<li><p>Position near the top of the page</p></li>
+<li><p>Position near the left of the page</p></li>
+<li><p>IDs or class names that contain the strings “hero” or “product”</p></li>
+</ul>
+<p>Don’t worry about expressing boolean combinations of smells except as a last resort. It’s generally sufficient to let Fathom optimize a linear combination of them. Also, Fathom will determine on its own whether to give a positive or negative weight to a smell; you don’t need to tell it.</p>
+<p>Since the primitives exposed by Fathom are thus far geared to the measurement of DOM properties (rather than, say, natural language processing), the best bang for your buck is generally rules that consider…</p>
+<ul class="simple">
+<li><p>CSS classes and IDs. Begin by simply testing for inclusion of signal-bearing strings. It is probably unnecessary to apply tokenization.</p></li>
+<li><p>Rendered size or position of elements</p></li>
+<li><p>Alignment or proximity of elements to each other. So far, the state of the art is to program a bit of “look around” into the scoring callback. It is also possible to get ahold of the <a class="reference internal" href="ruleset.html#BoundRuleset" title="BoundRuleset"><code class="xref js js-class docutils literal notranslate"><span class="pre">BoundRuleset()</span></code></a> object and try to pair up the examined node with another of a certain type, but so far it’s a manual process.</p></li>
+<li><p>Font sizes</p></li>
+<li><p>Colors and borders</p></li>
+<li><p>Visibility</p></li>
+<li><p>Any of the above in <a class="reference internal" href="utilities.html#ancestors" title="ancestors"><code class="xref js js-func docutils literal notranslate"><span class="pre">ancestor</span></code></a> elements of the target</p></li>
+</ul>
+<p>A useful technique is to look at some of the pages in your corpus and blur your eyes slightly. This shows you the page as Fathom sees it: you can’t read the text, but you can likely still recognize the target elements. Write rules that express the hints you are using to do so.</p>
+<p>Computed CSS properties are worth a special mention: <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle">getComputedStyle()</a> is the most robust way to retrieve style information about an element, since most properties are inherited through the complex interplay of stylesheets. Don’t try to look at <code class="docutils literal notranslate"><span class="pre">style</span></code> attributes directly or otherwise painstakingly reason out styles.</p>
+</div>
+<div class="section" id="rules-of-thumb">
+<h3>Rules of Thumb<a class="headerlink" href="#rules-of-thumb" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Lots of simple rules are better than fewer, more complex ones. Not only are they easier to write, but the further you can break up your guesses into separately optimizable pieces, the more good the trainer can do.</p></li>
+<li><p>Your rules don’t all have to be good. If you have an idea for a smell, code it up. If it was a bad idea, the trainer will likely give it a coefficient near 0, and you can prune it away.</p></li>
+<li><p><a class="reference internal" href="ruleset.html#when" title="when"><code class="xref js js-func docutils literal notranslate"><span class="pre">when()</span></code></a> is good for early pruning: hard, yes/no decisions on what should be considered. Scores are for gradations. Pruning makes your vector files smaller and training faster.</p></li>
+<li><p>Many good rule ideas come out of labeling samples. If you are not labeling samples yourself, at least study them in depth so you can notice patterns.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="getting-ready-to-train">
+<h2>Getting Ready to Train<a class="headerlink" href="#getting-ready-to-train" title="Permalink to this headline">¶</a></h2>
+<p>Once you’ve written a few scoring rules, it’s time for <a class="reference internal" href="training.html"><span class="doc">Training</span></a>. This computes optimal weighting coefficients and biases, which let the ruleset compute accurate confidences of its decisions. Be sure to write at least 2 rules before attempting to train; when there’s only one, the trainer has nothing to balance.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="training.html" class="btn btn-neutral float-right" title="Training" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="samples.html" class="btn btn-neutral float-left" title="Collecting Samples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

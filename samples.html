@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Collecting Samples &mdash; Fathom 3.7.3 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/tweaks.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Writing Rules" href="rules.html" />
+    <link rel="prev" title="Installing" href="installing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Fathom
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Collecting Samples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#suggested-directory-structure">Suggested Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rubrics">Rubrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collecting">Collecting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storing-samples-in-git">Storing Samples in Git</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-fathom-extract">Using fathom extract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-git-lfs">Configuring Git-LFS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#training-testing-and-validation-sets">Training, Testing, and Validation Sets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#maintaining-representativeness">Maintaining Representativeness</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">Writing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="training.html">Training</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrating.html">Integrating</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maintaining.html">Maintaining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zoo.html">Ruleset Zoo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fnodes.html">Fnodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ruleset.html">Rules and Rulesets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utility Functions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Command Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="commands/extract.html">fathom extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/fox.html">fathom fox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/histogram.html">fathom histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/label.html">fathom label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/list.html">fathom list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/pick.html">fathom pick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/serve.html">fathom serve</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/test.html">fathom test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands/train.html">fathom train</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Back Matter</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example Ruleset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versions.html">Version History</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fathom</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Collecting Samples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/samples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collecting-samples">
+<h1>Collecting Samples<a class="headerlink" href="#collecting-samples" title="Permalink to this headline">¶</a></h1>
+<p>Labeled samples are one of the two inputs that go into a working Fathom recognizer. By being statistically representative of the pages your application expects to encounter, they teach the trainer how to balance the contributions of the rules in the ruleset. Corpus collection is the process of selecting pages, labeling example elements on them, and serializing and organizing them in a repository for later training and testing.</p>
+<div class="section" id="suggested-directory-structure">
+<h2>Suggested Directory Structure<a class="headerlink" href="#suggested-directory-structure" title="Permalink to this headline">¶</a></h2>
+<p>Labeled samples are best stored in a version control repository next to the ruleset you’re developing. This allows you to go back and forth in time to reproduce results and correct labeling errors. Here’s the layout we recommend:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>samples/
+    unused/
+        foo.com.html   -- A positive sample, which contains an example of what we&#39;re looking for
+        bar.com.html
+        baz.net.html
+        qux.com.N.html  -- A negative (&quot;N&quot;) page: one that does NOT contain what we&#39;re looking for
+        corge.com.N.html
+        grault.de.N.html
+        ...
+    training/
+        waldo.com.html
+        fred.org.N.html
+        foo.com.2.html  -- Add a 2 so it doesn&#39;t conflict with foo.com.html if they ever end up in the same folder
+        ...
+    validation/
+    testing/
+    rubric.txt
+rulesets.js       -- Ruleset code
+</pre></div>
+</div>
+<p>Note the “.N” suffix that identifies negative pages. While Fathom does use any unlabeled <a class="reference internal" href="glossary.html#term-candidate"><span class="xref std std-term">candidate</span></a> elements as negative samples, the convention of signifying negative-only pages by name saves the trouble of double checking when the trainer advises that it can’t find any labeled elements in a file. Negative samples, whether or not they need dedicated pages brought in to provide them, are vital for teaching Fathom to avoid false positives.</p>
+</div>
+<div class="section" id="rubrics">
+<h2>Rubrics<a class="headerlink" href="#rubrics" title="Permalink to this headline">¶</a></h2>
+<p>Note the <code class="docutils literal notranslate"><span class="pre">rubric.txt</span></code> file in the <code class="docutils literal notranslate"><span class="pre">samples/</span></code> directory. Having a written standard for what to label is key to a good result; if samples are labeled inconsistently, they will push the trainer in conflicting directions, and your accuracy will suffer.</p>
+<p>Be sure to keep your rubrics up to date. Whenever you encounter a case where you have to make a new decision—something the rubric doesn’t already clearly specify—codify that decision so you are consistent with it in the future. Check your rubrics into version control so they change atomically with the samples whose labeling they describe.</p>
+</div>
+<div class="section" id="collecting">
+<h2>Collecting<a class="headerlink" href="#collecting" title="Permalink to this headline">¶</a></h2>
+<p>With a first draft of your rubric written, you’re ready to collect samples using FathomFox (<a class="reference internal" href="installing.html#fathomfox-installation"><span class="std std-ref">see installation instructions</span></a>).</p>
+<ol class="arabic simple">
+<li><p>Use Firefox’s Responsive Design mode (command-option-M) to set a repeatable window size. 1366x768 is most representative of desktop browsing habits at the moment. Using a consistent size will ensure that the proper CSS and images (which may be driven by media queries) will be frozen and later reloaded with the page.</p></li>
+<li><p>Navigate to a web page that contains an example of what you’re trying to recognize: for instance, a background overlay behind a modal dialog, as the stock example ruleset seeks out.</p></li>
+<li><p>Right-click the element, and choose Inspect Element. If you didn’t quite get the right element by cicking, fine-tune your selection using the developer tools’ Inspector.</p></li>
+<li><p>Switch to the Fathom developer tools tab, and enter a label of your choice (like “overlay” in this case) in the label field.</p></li>
+<li><p>Click Save Page. FathomFox “freezes” the page, inlining images and CSS into data URLs and getting rid of JS to keep pages deterministic for repeated training or testing. (Scripts loading scripts loading other scripts is surprisingly common in the wild, which often makes pages turn out unpredictably, not to mention being dependent on the network.) If you are unable to capture the page while the labeled elements are showing because they are triggered by a hover state, you can press <cite>Ctrl+Shift+O</cite> to trigger a save without moving the mouse.</p></li>
+<li><p>Put the page into the <code class="docutils literal notranslate"><span class="pre">unused</span></code> folder in your repository for now.</p></li>
+<li><p>Repeat until you have at least 20 pages. This is about the minimum necessary to run the trainer usefully; depending on the difficulty of your problem, you may need on the order of hundreds.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is also a bulk Corpus Collector tool, accessible from the toolbar button. Enter some URLs, and it freezes the pages one after another in the same way the dev tools panel does. The Corpus Collector is useful for grabbing hundreds of pages at once, but it doesn’t give you the opportunity to stop and label or interact with each (though it can scroll to the bottom or wait a predetermined time before freezing). Generally, page-by-page collection is the better choice.</p>
+</div>
+</div>
+<div class="section" id="storing-samples-in-git">
+<h2>Storing Samples in Git<a class="headerlink" href="#storing-samples-in-git" title="Permalink to this headline">¶</a></h2>
+<p>There are great advantages to storing samples in version control. However, corpora often bump up against the limits imposed by git hosting services like GitHub. Thus, we recommend using <a class="reference external" href="https://git-lfs.github.com/">Git Large File Storage (LFS)</a> to store samples. This is facilitated by <a class="reference internal" href="commands/extract.html"><span class="doc">fathom extract</span></a>, which breaks large subresources like images back out of the HTML. As a bonus, your HTML files will shrink drastically and become feasible to diff and load into text editors.</p>
+<div class="section" id="using-fathom-extract">
+<h3>Using fathom extract<a class="headerlink" href="#using-fathom-extract" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="commands/extract.html"><span class="doc">fathom extract</span></a> pulls the inlined data URLs representing subresources (like images and CSS) out of your samples, converts them into images and CSS files, places them in a newly created sample-specific directory within a newly created resources directory, and replaces the data URLs with references to the new files. This let you use Git-LFS to store the new subresource files.</p>
+<p>For example, if you have this directory of samples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span><span class="o">/</span>
+    <span class="n">unused</span><span class="o">/</span>
+        <span class="n">foo</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">html</span>
+        <span class="n">bar</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">html</span>
+        <span class="n">baz</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">html</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>Running…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fathom</span> <span class="n">extract</span> <span class="n">samples</span><span class="o">/</span><span class="n">unused</span>
+</pre></div>
+</div>
+<p>will change your directory to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span><span class="o">/</span>
+    <span class="n">unused</span><span class="o">/</span>
+        <span class="n">originals</span><span class="o">/</span>
+        <span class="n">resources</span><span class="o">/</span>
+            <span class="n">foo</span><span class="o">.</span><span class="n">com</span><span class="o">/</span>
+                <span class="mf">1.</span><span class="n">png</span>
+                <span class="mf">2.</span><span class="n">css</span>
+                <span class="mf">3.</span><span class="n">css</span>
+                <span class="o">...</span>
+            <span class="n">bar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span>
+                <span class="mf">1.</span><span class="n">css</span>
+                <span class="mf">2.</span><span class="n">jpg</span>
+                <span class="mf">3.</span><span class="n">jpg</span>
+                <span class="o">...</span>
+            <span class="n">baz</span><span class="o">.</span><span class="n">com</span><span class="o">/</span>
+                <span class="mf">1.</span><span class="n">css</span>
+                <span class="mf">2.</span><span class="n">png</span>
+                <span class="mf">3.</span><span class="n">jpg</span>
+                <span class="o">...</span>
+            <span class="o">...</span>
+        <span class="n">foo</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">html</span>
+        <span class="n">bar</span><span class="o">.</span><span class="n">edu</span><span class="o">.</span><span class="n">html</span>
+        <span class="n">baz</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">html</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>Once you are comfortable that your samples extracted correctly, you can delete the <code class="docutils literal notranslate"><span class="pre">originals</span></code> directory.</p>
+</div>
+<div class="section" id="configuring-git-lfs">
+<h3>Configuring Git-LFS<a class="headerlink" href="#configuring-git-lfs" title="Permalink to this headline">¶</a></h3>
+<p>Next, follow the <a class="reference external" href="https://git-lfs.github.com/">Git-LFS Getting Started steps</a> to keep your new resources directories in large-file storage. However, in step 2, instead of running the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">lfs</span> <span class="pre">track</span></code> command, it is easier to directly edit the <code class="docutils literal notranslate"><span class="pre">.gitattributes</span></code> file. For our suggested directory structure, you would add the line…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span><span class="o">/**/</span><span class="n">resources</span><span class="o">/**</span> <span class="nb">filter</span><span class="o">=</span><span class="n">lfs</span> <span class="n">diff</span><span class="o">=</span><span class="n">lfs</span> <span class="n">merge</span><span class="o">=</span><span class="n">lfs</span> <span class="o">-</span><span class="n">text</span>
+</pre></div>
+</div>
+<p>The first <code class="docutils literal notranslate"><span class="pre">/**</span></code> ensures all sample directories (<code class="docutils literal notranslate"><span class="pre">unused</span></code>, <code class="docutils literal notranslate"><span class="pre">training</span></code>, etc.) are tracked, and the second <code class="docutils literal notranslate"><span class="pre">/**</span></code> ensures the subdirectories are tracked.</p>
+</div>
+</div>
+<div class="section" id="training-testing-and-validation-sets">
+<h2>Training, Testing, and Validation Sets<a class="headerlink" href="#training-testing-and-validation-sets" title="Permalink to this headline">¶</a></h2>
+<p>Up to now, we’ve kept the samples in the <code class="docutils literal notranslate"><span class="pre">unused</span></code> folder. Now it’s time to divide them among the training, validation, and testing sets using <a class="reference internal" href="commands/pick.html"><span class="doc">fathom pick</span></a>. This command randomly moves a given number of files from one directory to another to keep the sets mutually representative.</p>
+<p>A training set on the order of a few hundred samples is generally sufficient to push precision and recall percentages into the high 90s. You’ll want additional samples for a validation set (to let the trainer know when it’s begun to overfit) and a test set (to come up with final accuracy numbers). We recommend a 60/20/20 split among training/validation/testing sets. This gives you large enough validation and testing sets, at typical corpus sizes, while shunting as many samples as possible to the training set so you can mine them for rule ideas.</p>
+<p>For example, if you had collected 100 samples initially, you would run these commands to divide them into sets:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">samples</span>
+<span class="n">fathom</span> <span class="n">pick</span> <span class="n">unused</span> <span class="n">training</span> <span class="mi">60</span>
+<span class="n">fathom</span> <span class="n">pick</span> <span class="n">unused</span> <span class="n">validation</span> <span class="mi">20</span>
+<span class="n">fathom</span> <span class="n">pick</span> <span class="n">unused</span> <span class="n">testing</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>If you collected a great many samples, leave some in the <code class="docutils literal notranslate"><span class="pre">unused</span></code> folder for now; the trainer will run faster with less data. Work on your ruleset until you have high accuracy on a few dozen samples, and only then add more.</p>
+<div class="section" id="maintaining-representativeness">
+<h3>Maintaining Representativeness<a class="headerlink" href="#maintaining-representativeness" title="Permalink to this headline">¶</a></h3>
+<p>It’s important to keep your sets mutually representative. If you have a collection of samples sorted by some metric, like site popularity or when they were collected, don’t use samples 1-100 for training and then 101-200 for validation. Instead, use <strong class="command">fathom pick</strong> to proportionally assign them to sets: 60% to training and 20% to each of validation and testing. You can repeat this as you later come to need more samples.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rules.html" class="btn btn-neutral float-right" title="Writing Rules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installing.html" class="btn btn-neutral float-left" title="Installing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2017-2019, Mozilla Foundation
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
