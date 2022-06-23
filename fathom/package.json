@@ -7,7 +7,7 @@
     "url": "https://github.com/mozilla/fathom/issues"
   },
   "dependencies": {
-    "jsdom": "^11.12.0"
+    "jsdom": "^16.5.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",
