@@ -16,6 +16,7 @@
 /fathom/README.md
 /fathom/**/*.js
 !/fathom/rollup.config.js
+!/fathom/rollupESModule.config.js
 !/fathom/test/browser/*
 /fathom_fox/node_modules
 /fathom_fox/addon/contentScript.js

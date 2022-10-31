@@ -33,6 +33,8 @@ publish: $(JS)
 
 bundle: dist/fathom.js
 
+bundleESModule: dist/fathom.mjs
+
 # .npm_installed is an empty file we touch whenever we run npm install. This
 # target redoes the install if package.json is newer than that file:
 .npm_installed: package.json
@@ -47,6 +49,9 @@ clean:
 
 dist/fathom.js: rollup.config.js .npm_installed $(MJS)
 	@node_modules/.bin/rollup -c
+
+dist/fathom.mjs: rollupESModule.config.js .npm_installed $(MJS)
+	@node_modules/.bin/rollup -c rollupESModule.config.js
 
 
 .PHONY: js lint test coveralls debugtest publish bundle clean
