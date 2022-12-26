@@ -3,4 +3,4 @@
 flake8==3.8.4
 flake8-quotes==3.2.0
 pytest==5.1.2
-wheel==0.34.2
+wheel==0.38.1
