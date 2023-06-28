@@ -282,28 +282,9 @@ def locked_cached_fathom():
                 """Run a command using the FathomFox dir as the working dir."""
                 run(*args, cwd=fathom_fox, desc=desc)
 
-            # Install yarn, because it installs FathomFox's dependencies in 15s rather
-            # than 30s. And once installed once, yarn itself takes only 1.5s to install
-            # again. Also, it has security advantages. Though this install itself isn't
-            # hashed, so we're just trusting NPM. Additionally, we have to call
-            # shutils.which() on npm because it is a .cmd file on Windows, while node
-            # (down below) is an executable.
-            run_in_fathom_fox(which('npm'), 'install', 'yarn@1.22.4',
-                              desc='Installing yarn')
-
-            # Figure out how to invoke yarn:
-            if os.name == 'nt':
-                yarn_binary = str((fathom_fox / 'node_modules' / 'yarn' / 'bin' / 'yarn.js').resolve())
-            else:
-                yarn_binary = str((fathom_fox / 'node_modules' / '.bin' / 'yarn').resolve())
-
             # Pull in npm dependencies:
-            run_in_fathom_fox('node', yarn_binary, 'install',
-                              desc='Installing dependencies with yarn')
-            # FWIW, I find the most common failure on `yarn install` is a server-side
-            # 500 error while downloading geckodriver, which comes from GitHub rather
-            # than npm. The output needed to distinguish this is not captured by
-            # subprocess.run(capture_output=True).
+            run_in_fathom_fox(which('npm'), 'install',
+                              desc='Installing dependencies with npm')
 
             # Drop a little turd to declare that we finished building this
             # cached copy entirely:
