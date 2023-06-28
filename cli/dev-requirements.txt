@@ -1,6 +1,7 @@
 # Requirements needed for running tests and such. Broken off into a separate
 # file so Make can notice if they change and re-run pip install.
-flake8==3.8.4
+flake8==3.9.2
+importlib-metadata>=1.1.0,<5;python_version<'3.8'
 flake8-quotes==3.2.0
 pytest==5.1.2
 wheel==0.34.2
