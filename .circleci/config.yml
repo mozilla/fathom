@@ -25,7 +25,7 @@ jobs:
            fi
   test_python:
     docker:
-      - image: cimg/python:3.7.9-node
+      - image: cimg/python:3.9.17-node
     environment:
       MOZ_HEADLESS: 1
     steps:
