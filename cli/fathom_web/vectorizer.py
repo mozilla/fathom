@@ -26,6 +26,7 @@ from click import ClickException, progressbar
 from filelock import FileLock
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException, NoSuchWindowException
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 
 from .utils import read_chunks, samples_from_dir
@@ -281,28 +282,9 @@ def locked_cached_fathom():
                 """Run a command using the FathomFox dir as the working dir."""
                 run(*args, cwd=fathom_fox, desc=desc)
 
-            # Install yarn, because it installs FathomFox's dependencies in 15s rather
-            # than 30s. And once installed once, yarn itself takes only 1.5s to install
-            # again. Also, it has security advantages. Though this install itself isn't
-            # hashed, so we're just trusting NPM. Additionally, we have to call
-            # shutils.which() on npm because it is a .cmd file on Windows, while node
-            # (down below) is an executable.
-            run_in_fathom_fox(which('npm'), 'install', 'yarn@1.22.4',
-                              desc='Installing yarn')
-
-            # Figure out how to invoke yarn:
-            if os.name == 'nt':
-                yarn_binary = str((fathom_fox / 'node_modules' / 'yarn' / 'bin' / 'yarn.js').resolve())
-            else:
-                yarn_binary = str((fathom_fox / 'node_modules' / '.bin' / 'yarn').resolve())
-
             # Pull in npm dependencies:
-            run_in_fathom_fox('node', yarn_binary, 'install',
-                              desc='Installing dependencies with yarn')
-            # FWIW, I find the most common failure on `yarn install` is a server-side
-            # 500 error while downloading geckodriver, which comes from GitHub rather
-            # than npm. The output needed to distinguish this is not captured by
-            # subprocess.run(capture_output=True).
+            run_in_fathom_fox(which('npm'), 'install',
+                              desc='Installing dependencies with npm')
 
             # Drop a little turd to declare that we finished building this
             # cached copy entirely:
@@ -398,23 +380,27 @@ def running_firefox(fathom_fox, show_browser, geckodriver_path):
 
     """
     print('Running Firefox...', end='', flush=True)
-    options = webdriver.FirefoxOptions()
-    options.headless = not show_browser
 
     with TemporaryDirectory() as download_dir:
-        profile = webdriver.FirefoxProfile()
-        profile.set_preference('browser.download.folderList', 2)
-        profile.set_preference('browser.download.dir', download_dir)
-        profile.set_preference('browser.cache.disk.enable', False)
-        profile.set_preference('browser.cache.memory.enable', False)
-        profile.set_preference('browser.cache.offline.enable', False)
-        profile.set_preference('devtools.chrome.enabled', True)
+        options = webdriver.FirefoxOptions()
 
-        firefox = webdriver.Firefox(
+        if not show_browser:
+            options.add_argument('-headless')
+
+        options.set_preference('browser.download.folderList', 2)
+        options.set_preference('browser.download.dir', download_dir)
+        options.set_preference('browser.cache.disk.enable', False)
+        options.set_preference('browser.cache.memory.enable', False)
+        options.set_preference('browser.cache.offline.enable', False)
+        options.set_preference('devtools.chrome.enabled', True)
+
+        service = webdriver.firefox.service.Service(
             executable_path=str(geckodriver_path.resolve()),
+            log_path=devnull,
+        )
+        firefox = webdriver.Firefox(
+            service=service,
             options=options,
-            firefox_profile=profile,
-            service_log_path=devnull,
         )
 
         firefox.install_addon(str(fathom_fox), temporary=True)
@@ -466,7 +452,7 @@ def run_vectorizer(firefox, trainee_id, sample_filenames, output_path, kind_of_s
     """
     def put_into_field(field_id, string):
         """Put a given string into the text field of a given ID."""
-        field = firefox.find_element_by_id(field_id)
+        field = firefox.find_element(By.ID, field_id)
         field.clear()
         field.send_keys(string)
 
@@ -475,7 +461,7 @@ def run_vectorizer(firefox, trainee_id, sample_filenames, output_path, kind_of_s
     fathom_fox_uuid = get_fathom_fox_uuid(firefox)
     firefox.get(f'moz-extension://{fathom_fox_uuid}/pages/vector.html')
 
-    ruleset_dropdown_selector = Select(firefox.find_element_by_id('trainee'))
+    ruleset_dropdown_selector = Select(firefox.find_element(By.ID, 'trainee'))
     try:
         ruleset_dropdown_selector.select_by_visible_text(trainee_id)
     except NoSuchElementException:
@@ -487,8 +473,8 @@ def run_vectorizer(firefox, trainee_id, sample_filenames, output_path, kind_of_s
     put_into_field('maxTabs', str(tabs))
 
     number_of_samples = len(sample_filenames)
-    status_box = firefox.find_element_by_id('status')
-    vectorize_button = firefox.find_element_by_id('freeze')
+    status_box = firefox.find_element(By.ID, 'status')
+    vectorize_button = firefox.find_element(By.ID, 'freeze')
     completed_samples = 0
     print('done.')
 
@@ -511,7 +497,7 @@ def run_vectorizer(firefox, trainee_id, sample_filenames, output_path, kind_of_s
             completed_samples = now_completed_samples
             sleep(.25)
 
-    download_dir = Path(firefox.profile.default_preferences['browser.download.dir'])
+    download_dir = Path(firefox.options.preferences['browser.download.dir'])
     new_file = wait_for_vectors_in(download_dir)
     unlink_if_exists(output_path)  # move() won't overwrite a file on Windows.
     output_path.parent.mkdir(parents=True, exist_ok=True)

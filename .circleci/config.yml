@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  browser-tools: circleci/browser-tools@1.1.1
+  browser-tools: circleci/browser-tools@1.4.1
 
 jobs:
   test_js:
@@ -11,7 +11,7 @@ jobs:
       MOZ_HEADLESS: 1
     steps:
       - browser-tools/install-firefox:
-          version: 86.0.1
+          version: 114.0.2
       - checkout
       - run: make -C fathom lint test
       # Upload new coveralls stats only on master, which is the only place
@@ -25,12 +25,12 @@ jobs:
            fi
   test_python:
     docker:
-      - image: cimg/python:3.7.9-node
+      - image: cimg/python:3.9.17-node
     environment:
       MOZ_HEADLESS: 1
     steps:
       - browser-tools/install-firefox:
-          version: 86.0.1
+          version: 114.0.2
       - checkout
       - restore_cache:
           keys:
