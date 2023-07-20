@@ -10,7 +10,7 @@ MarkupSafe==1.1.1
 packaging==20.4
 parsimonious==0.7.0
 pbr==5.4.5
-Pygments==2.6.1
+Pygments==2.15.0
 pyparsing==2.4.7
 pytz==2020.1
 requests==2.24.0
